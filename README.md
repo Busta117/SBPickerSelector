@@ -1,7 +1,7 @@
 SBPickerSelector
 ================
 
-easy framework to setup pickers in your iOS project
+easy framework to setup pickers in your iOS project, easy picker manager.
 
 you can see how to works in the example project the file named <b>"SBViewController"</b> in the method <b>showPicker:</b>
 
