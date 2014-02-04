@@ -10,19 +10,19 @@
 
 @class SBPickerSelector;
 
-typedef NS_ENUM(NSInteger, PGPickerSelectorType) {
-    PGPickerSelectorTypeNumerical = 0,
-    PGPickerSelectorTypeDate,
-    PGPickerSelectorTypeText,
+typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
+    SBPickerSelectorTypeNumerical = 0,
+    SBPickerSelectorTypeDate,
+    SBPickerSelectorTypeText,
 };
 
 
-@protocol PGPickerSelectorDelegate <NSObject>
+@protocol SBPickerSelectorDelegate <NSObject>
 
 @optional
--(void) PGPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
--(void) PGPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
-
+-(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
+-(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 @end
 
 
@@ -39,8 +39,8 @@ typedef NS_ENUM(NSInteger, PGPickerSelectorType) {
 
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) NSMutableArray *pickerData;
-@property (nonatomic, assign) PGPickerSelectorType pickerType;
-@property (nonatomic, weak) id<PGPickerSelectorDelegate> delegate;
+@property (nonatomic, assign) SBPickerSelectorType pickerType;
+@property (nonatomic, weak) id<SBPickerSelectorDelegate> delegate;
 @property (nonatomic, assign) int numberOfComponents;
 @property (nonatomic, weak) id pickerId;
 @property (nonatomic, assign) BOOL onlyDayPicker;

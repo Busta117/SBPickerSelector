@@ -46,12 +46,12 @@
 }
 
 
-- (void) setPickerType:(PGPickerSelectorType)pickerType{
+- (void) setPickerType:(SBPickerSelectorType)pickerType{
     _pickerType = pickerType;
     
     CGRect frame = self.view.frame;
     
-    if (pickerType == PGPickerSelectorTypeDate) {
+    if (pickerType == SBPickerSelectorTypeDate) {
         [self.pickerView removeFromSuperview];
         [self.view addSubview:self.datePickerView];
         
@@ -85,10 +85,10 @@
 
 
 - (IBAction)setAction:(id)sender {
-    if (self.pickerType == PGPickerSelectorTypeDate) {
+    if (self.pickerType == SBPickerSelectorTypeDate) {
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(PGPickerSelector:dateSelected:)]) {
-            [self.delegate PGPickerSelector:self dateSelected:self.datePickerView.date];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:dateSelected:)]) {
+            [self.delegate SBPickerSelector:self dateSelected:self.datePickerView.date];
         }
             [self dismissPicker];
         return;
@@ -108,8 +108,8 @@
             }
         }
         
-        if ([self.delegate respondsToSelector:@selector(PGPickerSelector:selectedValue:index:)]) {
-            [self.delegate PGPickerSelector:self selectedValue:str index:[self.pickerView selectedRowInComponent:0]];
+        if ([self.delegate respondsToSelector:@selector(SBPickerSelector:selectedValue:index:)]) {
+            [self.delegate SBPickerSelector:self selectedValue:str index:[self.pickerView selectedRowInComponent:0]];
         }
 
     }
@@ -119,6 +119,9 @@
 
 
 - (IBAction)cancelAction:(id)sender {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:cancelPicker:)]) {
+        [self.delegate SBPickerSelector:self cancelPicker:YES];
+    }
     [self dismissPicker];
 }
 

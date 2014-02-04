@@ -54,7 +54,7 @@
     SBPickerSelector *picker = [SBPickerSelector picker];
     
     picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
-    picker.pickerType = PGPickerSelectorTypeText;
+    picker.pickerType = SBPickerSelectorTypeText;
     
 //    picker.pickerType = PGPickerSelectorTypeDate; //select date(needs implements delegate method with date)
 //    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)

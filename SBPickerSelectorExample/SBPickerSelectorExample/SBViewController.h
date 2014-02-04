@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SBPickerSelector.h"
 
-@interface SBViewController : UIViewController <PGPickerSelectorDelegate>
+@interface SBViewController : UIViewController <SBPickerSelectorDelegate>
 
 @end
