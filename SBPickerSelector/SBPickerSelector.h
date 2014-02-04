@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @property (nonatomic, weak) id<SBPickerSelectorDelegate> delegate;
 @property (nonatomic, assign) int numberOfComponents;
 @property (nonatomic, weak) id pickerId;
+@property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
 
 
