@@ -20,10 +20,10 @@ you can see how to works in the example project the file named <b>"SBViewControl
 - add delegate methods depends of your necesities
 
         //if your piker is a traditional selection
-        -(void) PGPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
+        -(void) PGPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
         
         //if your picker is a date selection
-        -(void) PGPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+        -(void) PGPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 
 - in your code add follow code when you need show the picker
 
