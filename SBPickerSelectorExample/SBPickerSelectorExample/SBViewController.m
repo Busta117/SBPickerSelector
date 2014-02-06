@@ -66,12 +66,12 @@
 
 
 #pragma mark - pickerSelector Delegate
--(void) PGPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
+-(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
     resultLbl_.text = value;
 }
 
 
--(void) PGPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
+-(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -79,6 +79,9 @@
     resultLbl_.text = [dateFormat stringFromDate:date];
 }
 
+-(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel{
+    NSLog(@"press cancel");
+}
 
 
 
