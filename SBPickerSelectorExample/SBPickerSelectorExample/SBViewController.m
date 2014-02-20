@@ -60,7 +60,15 @@
 //    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
 
     picker.delegate = self;
+
     [picker showPickerOver:self];
+    
+    
+    CGPoint point = [self.view convertPoint:[sender frame].origin fromView:[sender superview]];
+    CGRect frame = [sender frame];
+    frame.origin = point;
+    [picker showPickerIpadFromRect:frame inView:self.view];
+    
     
 }
 

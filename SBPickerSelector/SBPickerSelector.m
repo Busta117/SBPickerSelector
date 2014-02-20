@@ -46,6 +46,30 @@
 }
 
 
+- (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view{
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        popOver_ = [[UIPopoverController alloc] initWithContentViewController:self];
+        [popOver_ setPopoverContentSize:self.view.frame.size];
+        [popOver_ presentPopoverFromRect:rect inView:view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }else{
+        [self showPickerOver:(UIViewController *)[self traverseResponderChainForUIViewController:view]];
+    }
+    
+}
+
+- (id) traverseResponderChainForUIViewController:(UIView *)view {
+    id nextResponder = [view nextResponder];
+    if ([nextResponder isKindOfClass:[UIViewController class]]) {
+        return nextResponder;
+    } else if ([nextResponder isKindOfClass:[UIView class]]) {
+        return [self traverseResponderChainForUIViewController:nextResponder];
+    } else {
+        return nil;
+    }
+}
+
+
 - (void) setPickerType:(SBPickerSelectorType)pickerType{
     _pickerType = pickerType;
     
@@ -126,6 +150,12 @@
 }
 
 - (void) dismissPicker{
+    
+    if (popOver_) {
+        [popOver_ dismissPopoverAnimated:YES];
+        return;
+    }
+    
     [UIView animateWithDuration:0.3 animations:^{
         self.background.backgroundColor = [self.background.backgroundColor colorWithAlphaComponent:0];
         CGRect frame = self.view.frame;

@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
     __weak IBOutlet UIToolbar *toolBar_;
     
     UIViewController *parent_;
+    
+    UIPopoverController *popOver_;
 }
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
@@ -48,6 +50,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 
 
 + (SBPickerSelector *) picker;
+- (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view;
 - (void) showPickerOver:(UIViewController *)parent;
 
 
