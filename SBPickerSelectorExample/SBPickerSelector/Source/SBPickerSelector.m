@@ -196,4 +196,35 @@
     return self.pickerData[row];
 }
 
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (self.pickerType == SBPickerSelectorTypeDate) {
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate SBPickerSelector:self intermediatelySelectedValue:self.datePickerView.date atIndex:0];
+        }
+        return;
+    }
+    
+    if (self.delegate) {
+        NSMutableString *str = [NSMutableString stringWithString:@""];
+        for (int i = 0; i < self.numberOfComponents; i++) {
+            if (self.numberOfComponents == 1) {
+                [str appendString:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
+            }else{
+                NSMutableArray *componentData = self.pickerData[i];
+                [str appendString:componentData[[self.pickerView selectedRowInComponent:i]]];
+                if (i<self.numberOfComponents-1) {
+                    [str appendString:@" "];
+                }
+            }
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate SBPickerSelector:self intermediatelySelectedValue:str atIndex:[self.pickerView selectedRowInComponent:0]];
+        }
+        
+    }
+}
+
 @end

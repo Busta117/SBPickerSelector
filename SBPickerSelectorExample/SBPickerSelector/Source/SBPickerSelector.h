@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @optional
 -(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 -(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
 -(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 @end
 
