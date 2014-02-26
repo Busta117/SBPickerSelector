@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921F84E618BDEA5900518433 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 921F84E218BDEA5900518433 /* SBPickerSelector.xib */; };
+		921F84E718BDEA5900518433 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 921F84E518BDEA5900518433 /* SBPickerSelector.m */; };
 		DE2049281892FF4400A09416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2049271892FF4400A09416 /* Foundation.framework */; };
 		DE20492A1892FF4400A09416 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2049291892FF4400A09416 /* CoreGraphics.framework */; };
 		DE20492C1892FF4400A09416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20492B1892FF4400A09416 /* UIKit.framework */; };
@@ -20,8 +22,6 @@
 		DE20494C1892FF4400A09416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20492B1892FF4400A09416 /* UIKit.framework */; };
 		DE2049541892FF4400A09416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE2049521892FF4400A09416 /* InfoPlist.strings */; };
 		DE2049561892FF4400A09416 /* SBPickerSelectorExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2049551892FF4400A09416 /* SBPickerSelectorExampleTests.m */; };
-		DE2049631892FF7800A09416 /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2049611892FF7800A09416 /* SBPickerSelector.m */; };
-		DE2049641892FF7800A09416 /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2049621892FF7800A09416 /* SBPickerSelector.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		921F84E218BDEA5900518433 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
+		921F84E418BDEA5900518433 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
+		921F84E518BDEA5900518433 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
 		DE2049241892FF4400A09416 /* SBPickerSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBPickerSelectorExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2049271892FF4400A09416 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE2049291892FF4400A09416 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,9 +56,6 @@
 		DE2049511892FF4400A09416 /* SBPickerSelectorExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SBPickerSelectorExampleTests-Info.plist"; sourceTree = "<group>"; };
 		DE2049531892FF4400A09416 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE2049551892FF4400A09416 /* SBPickerSelectorExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelectorExampleTests.m; sourceTree = "<group>"; };
-		DE2049601892FF7800A09416 /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
-		DE2049611892FF7800A09416 /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
-		DE2049621892FF7800A09416 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,10 +82,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		921F84E018BDEA5900518433 /* SBPickerSelector */ = {
+			isa = PBXGroup;
+			children = (
+				921F84E118BDEA5900518433 /* Resources */,
+				921F84E318BDEA5900518433 /* Source */,
+			);
+			path = SBPickerSelector;
+			sourceTree = "<group>";
+		};
+		921F84E118BDEA5900518433 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				921F84E218BDEA5900518433 /* SBPickerSelector.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		921F84E318BDEA5900518433 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				921F84E418BDEA5900518433 /* SBPickerSelector.h */,
+				921F84E518BDEA5900518433 /* SBPickerSelector.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		DE20491B1892FF4400A09416 = {
 			isa = PBXGroup;
 			children = (
-				DE20495F1892FF7800A09416 /* SBPickerSelector */,
+				921F84E018BDEA5900518433 /* SBPickerSelector */,
 				DE20492D1892FF4400A09416 /* SBPickerSelectorExample */,
 				DE20494F1892FF4400A09416 /* SBPickerSelectorExampleTests */,
 				DE2049261892FF4400A09416 /* Frameworks */,
@@ -153,17 +179,6 @@
 				DE2049521892FF4400A09416 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		DE20495F1892FF7800A09416 /* SBPickerSelector */ = {
-			isa = PBXGroup;
-			children = (
-				DE2049601892FF7800A09416 /* SBPickerSelector.h */,
-				DE2049611892FF7800A09416 /* SBPickerSelector.m */,
-				DE2049621892FF7800A09416 /* SBPickerSelector.xib */,
-			);
-			name = SBPickerSelector;
-			path = ../SBPickerSelector;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,9 +258,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921F84E618BDEA5900518433 /* SBPickerSelector.xib in Resources */,
 				DE2049431892FF4400A09416 /* Images.xcassets in Resources */,
 				DE2049321892FF4400A09416 /* InfoPlist.strings in Resources */,
-				DE2049641892FF7800A09416 /* SBPickerSelector.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE2049341892FF4400A09416 /* main.m in Sources */,
-				DE2049631892FF7800A09416 /* SBPickerSelector.m in Sources */,
+				921F84E718BDEA5900518433 /* SBPickerSelector.m in Sources */,
 				DE2049411892FF4400A09416 /* SBViewController.m in Sources */,
 				DE2049381892FF4400A09416 /* SBAppDelegate.m in Sources */,
 			);
