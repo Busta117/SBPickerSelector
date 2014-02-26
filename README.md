@@ -25,6 +25,9 @@ you can see how to works in the example project the file named <b>"SBViewControl
         //if your picker is a date selection
         -(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
         
+		//when picker value is changing
+		-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+		
         //if the user cancel the picker
         -(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 
@@ -39,7 +42,14 @@ you can see how to works in the example project the file named <b>"SBViewControl
         picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
         
         picker.delegate = self;
-        [picker showPickerOver:self];
+		
+	    picker.doneButtonTitle = @"Done";
+	    picker.cancelButtonTitle = @"Cancel";
+		
+		
+        [picker showPickerOver:self]; //classic picker display 
+		
+		[picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
     
 ####feedback?
 
