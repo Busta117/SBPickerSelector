@@ -110,6 +110,21 @@
     }
 }
 
+- (void) setDoneButtonTitle:(NSString *)doneButtonTitle{
+    self.doneButton.title = doneButtonTitle;
+}
+
+- (NSString *)doneButtonTitle{
+    return self.doneButton.title;
+}
+
+- (void) setCancelButtonTitle:(NSString *)cancelButtonTitle{
+    self.cancelButton.title = cancelButtonTitle;
+}
+
+- (NSString *)cancelButtonTitle{
+    return self.cancelButton.title;
+}
 
 - (IBAction)setAction:(id)sender {
     if (self.pickerType == SBPickerSelectorTypeDate) {

@@ -28,6 +28,7 @@
     UIButton *but = [UIButton buttonWithType:UIButtonTypeSystem];
     but.frame = CGRectMake(0, 0, 200, 50);
     but.center = self.view.center;
+    but.center = CGPointMake(but.center.x, but.center.y - 100);
     [but setTitle:@"show picker" forState:UIControlStateNormal];
     [but addTarget:self action:@selector(showPicker:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:but];
@@ -54,15 +55,15 @@
     SBPickerSelector *picker = [SBPickerSelector picker];
     
     picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
-    picker.pickerType = SBPickerSelectorTypeText;
-    
-//    picker.pickerType = PGPickerSelectorTypeDate; //select date(needs implements delegate method with date)
-//    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
-
     picker.delegate = self;
-
-    [picker showPickerOver:self];
+//    picker.pickerType = SBPickerSelectorTypeText;
+    picker.doneButtonTitle = @"Done";
+    picker.cancelButtonTitle = @"Cancel";
     
+    picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate method with date)
+    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
+
+//    [picker showPickerOver:self];
     
     CGPoint point = [self.view convertPoint:[sender frame].origin fromView:[sender superview]];
     CGRect frame = [sender frame];
@@ -73,11 +74,10 @@
 }
 
 
-#pragma mark - pickerSelector Delegate
+#pragma mark - SBPickerSelectorDelegate
 -(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
     resultLbl_.text = value;
 }
-
 
 -(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
     
@@ -91,6 +91,13 @@
     NSLog(@"press cancel");
 }
 
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx{
+    if ([value isMemberOfClass:[NSDate class]]) {
+        [self SBPickerSelector:selector dateSelected:value];
+    }else{
+        [self SBPickerSelector:selector selectedValue:value index:idx];
+    }
+}
 
 
 

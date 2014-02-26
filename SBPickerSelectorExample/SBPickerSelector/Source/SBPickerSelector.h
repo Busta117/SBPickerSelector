@@ -39,6 +39,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePickerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) NSMutableArray *pickerData;
@@ -48,6 +50,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @property (nonatomic, weak) id pickerId;
 @property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
+@property (nonatomic, strong) NSString *doneButtonTitle;
+@property (nonatomic, strong) NSString *cancelButtonTitle;
 
 
 + (SBPickerSelector *) picker;

@@ -17,22 +17,7 @@
 		DE2049381892FF4400A09416 /* SBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2049371892FF4400A09416 /* SBAppDelegate.m */; };
 		DE2049411892FF4400A09416 /* SBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2049401892FF4400A09416 /* SBViewController.m */; };
 		DE2049431892FF4400A09416 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE2049421892FF4400A09416 /* Images.xcassets */; };
-		DE20494A1892FF4400A09416 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2049491892FF4400A09416 /* XCTest.framework */; };
-		DE20494B1892FF4400A09416 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2049271892FF4400A09416 /* Foundation.framework */; };
-		DE20494C1892FF4400A09416 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE20492B1892FF4400A09416 /* UIKit.framework */; };
-		DE2049541892FF4400A09416 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE2049521892FF4400A09416 /* InfoPlist.strings */; };
-		DE2049561892FF4400A09416 /* SBPickerSelectorExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE2049551892FF4400A09416 /* SBPickerSelectorExampleTests.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		DE20494D1892FF4400A09416 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DE20491C1892FF4400A09416 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DE2049231892FF4400A09416;
-			remoteInfo = SBPickerSelectorExample;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		921F84E218BDEA5900518433 /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
@@ -51,7 +36,6 @@
 		DE20493F1892FF4400A09416 /* SBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBViewController.h; sourceTree = "<group>"; };
 		DE2049401892FF4400A09416 /* SBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SBViewController.m; sourceTree = "<group>"; };
 		DE2049421892FF4400A09416 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		DE2049481892FF4400A09416 /* SBPickerSelectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBPickerSelectorExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2049491892FF4400A09416 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DE2049511892FF4400A09416 /* SBPickerSelectorExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SBPickerSelectorExampleTests-Info.plist"; sourceTree = "<group>"; };
 		DE2049531892FF4400A09416 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -66,16 +50,6 @@
 				DE20492A1892FF4400A09416 /* CoreGraphics.framework in Frameworks */,
 				DE20492C1892FF4400A09416 /* UIKit.framework in Frameworks */,
 				DE2049281892FF4400A09416 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE2049451892FF4400A09416 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE20494A1892FF4400A09416 /* XCTest.framework in Frameworks */,
-				DE20494C1892FF4400A09416 /* UIKit.framework in Frameworks */,
-				DE20494B1892FF4400A09416 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				DE2049241892FF4400A09416 /* SBPickerSelectorExample.app */,
-				DE2049481892FF4400A09416 /* SBPickerSelectorExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,24 +174,6 @@
 			productReference = DE2049241892FF4400A09416 /* SBPickerSelectorExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DE2049471892FF4400A09416 /* SBPickerSelectorExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DE20495C1892FF4400A09416 /* Build configuration list for PBXNativeTarget "SBPickerSelectorExampleTests" */;
-			buildPhases = (
-				DE2049441892FF4400A09416 /* Sources */,
-				DE2049451892FF4400A09416 /* Frameworks */,
-				DE2049461892FF4400A09416 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DE20494E1892FF4400A09416 /* PBXTargetDependency */,
-			);
-			name = SBPickerSelectorExampleTests;
-			productName = SBPickerSelectorExampleTests;
-			productReference = DE2049481892FF4400A09416 /* SBPickerSelectorExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -228,11 +183,6 @@
 				CLASSPREFIX = SB;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Busta117;
-				TargetAttributes = {
-					DE2049471892FF4400A09416 = {
-						TestTargetID = DE2049231892FF4400A09416;
-					};
-				};
 			};
 			buildConfigurationList = DE20491F1892FF4400A09416 /* Build configuration list for PBXProject "SBPickerSelectorExample" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -248,7 +198,6 @@
 			projectRoot = "";
 			targets = (
 				DE2049231892FF4400A09416 /* SBPickerSelectorExample */,
-				DE2049471892FF4400A09416 /* SBPickerSelectorExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -261,14 +210,6 @@
 				921F84E618BDEA5900518433 /* SBPickerSelector.xib in Resources */,
 				DE2049431892FF4400A09416 /* Images.xcassets in Resources */,
 				DE2049321892FF4400A09416 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE2049461892FF4400A09416 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE2049541892FF4400A09416 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,23 +227,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DE2049441892FF4400A09416 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DE2049561892FF4400A09416 /* SBPickerSelectorExampleTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		DE20494E1892FF4400A09416 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DE2049231892FF4400A09416 /* SBPickerSelectorExample */;
-			targetProxy = DE20494D1892FF4400A09416 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DE2049301892FF4400A09416 /* InfoPlist.strings */ = {
@@ -406,6 +331,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SBPickerSelectorExample/SBPickerSelectorExample-Prefix.pch";
 				INFOPLIST_FILE = "SBPickerSelectorExample/SBPickerSelectorExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,50 +345,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SBPickerSelectorExample/SBPickerSelectorExample-Prefix.pch";
 				INFOPLIST_FILE = "SBPickerSelectorExample/SBPickerSelectorExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		DE20495D1892FF4400A09416 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SBPickerSelectorExample.app/SBPickerSelectorExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SBPickerSelectorExample/SBPickerSelectorExample-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SBPickerSelectorExampleTests/SBPickerSelectorExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		DE20495E1892FF4400A09416 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SBPickerSelectorExample.app/SBPickerSelectorExample";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SBPickerSelectorExample/SBPickerSelectorExample-Prefix.pch";
-				INFOPLIST_FILE = "SBPickerSelectorExampleTests/SBPickerSelectorExampleTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -483,15 +368,6 @@
 			buildConfigurations = (
 				DE20495A1892FF4400A09416 /* Debug */,
 				DE20495B1892FF4400A09416 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DE20495C1892FF4400A09416 /* Build configuration list for PBXNativeTarget "SBPickerSelectorExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DE20495D1892FF4400A09416 /* Debug */,
-				DE20495E1892FF4400A09416 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
