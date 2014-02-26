@@ -17,52 +17,52 @@ pod "SBPickerSelector", "~> 1.0.0"
 ```
 
 ### Installation without CocoaPods
-- import in your project the folder "SBViewController"
+- import in your project the folder "SBPickerSelector"
 
 ###How to use
 
 - in your code import SBPickerSelector.h
-
-        #import "SBPickerSelector.h"
-
+```objective-c
+#import "SBPickerSelector.h"
+```
 - implement delegate in your class
-
-        @interface className : UIViewController <SBPickerSelectorDelegate>
-
+```objective-c
+@interface className : UIViewController <SBPickerSelectorDelegate>
+```
 - add delegate methods depends of your necesities
+```objective-c
+//if your piker is a traditional selection
+-(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
 
-        //if your piker is a traditional selection
-        -(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
-        
-        //if your picker is a date selection
-        -(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
-        
-		//when picker value is changing
-		-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
-		
-        //if the user cancel the picker
-        -(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
+//if your picker is a date selection
+-(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 
+//when picker value is changing
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+
+//if the user cancel the picker
+-(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
+```
 - in your code add follow code when you need show the picker
+```objective-c
+SBPickerSelector *picker = [SBPickerSelector picker];
 
-        SBPickerSelector *picker = [SBPickerSelector picker];
-        
-        picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
-        picker.pickerType = SBPickerSelectorTypeText;
-        
-        picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate methid with date)
-        picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
-        
-        picker.delegate = self;
-		
-	    picker.doneButtonTitle = @"Done";
-	    picker.cancelButtonTitle = @"Cancel";
-		
-		
-        [picker showPickerOver:self]; //classic picker display 
-		
-		[picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
-    
+picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
+picker.pickerType = SBPickerSelectorTypeText;
+
+picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate methid with date)
+picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
+
+picker.delegate = self;
+
+picker.doneButtonTitle = @"Done";
+picker.cancelButtonTitle = @"Cancel";
+
+
+[picker showPickerOver:self]; //classic picker display 
+
+[picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
+```
 ####feedback?
 
 * twitter: [@busta117](http://www.twitter.com/busta117)
