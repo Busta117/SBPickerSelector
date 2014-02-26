@@ -10,9 +10,12 @@
 
 @implementation SBPickerSelector
 
-
 + (SBPickerSelector *) picker {
-    SBPickerSelector *instance = [[SBPickerSelector alloc] initWithNibName:@"SBPickerSelector" bundle:nil];
+    return [SBPickerSelector pickerWithNibName:@"SBPickerSelector"];
+}
+
++ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName {
+    SBPickerSelector *instance = [[SBPickerSelector alloc] initWithNibName:nibName bundle:nil];
     instance.pickerData = [NSMutableArray arrayWithCapacity:0];
     instance.numberOfComponents = 1;
     return instance;
@@ -107,6 +110,21 @@
     }
 }
 
+- (void) setDoneButtonTitle:(NSString *)doneButtonTitle{
+    self.doneButton.title = doneButtonTitle;
+}
+
+- (NSString *)doneButtonTitle{
+    return self.doneButton.title;
+}
+
+- (void) setCancelButtonTitle:(NSString *)cancelButtonTitle{
+    self.cancelButton.title = cancelButtonTitle;
+}
+
+- (NSString *)cancelButtonTitle{
+    return self.cancelButton.title;
+}
 
 - (IBAction)setAction:(id)sender {
     if (self.pickerType == SBPickerSelectorTypeDate) {
@@ -191,6 +209,37 @@
         return comp[row];
     }
     return self.pickerData[row];
+}
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if (self.pickerType == SBPickerSelectorTypeDate) {
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate SBPickerSelector:self intermediatelySelectedValue:self.datePickerView.date atIndex:0];
+        }
+        return;
+    }
+    
+    if (self.delegate) {
+        NSMutableString *str = [NSMutableString stringWithString:@""];
+        for (int i = 0; i < self.numberOfComponents; i++) {
+            if (self.numberOfComponents == 1) {
+                [str appendString:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
+            }else{
+                NSMutableArray *componentData = self.pickerData[i];
+                [str appendString:componentData[[self.pickerView selectedRowInComponent:i]]];
+                if (i<self.numberOfComponents-1) {
+                    [str appendString:@" "];
+                }
+            }
+        }
+        
+        if ([self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate SBPickerSelector:self intermediatelySelectedValue:str atIndex:[self.pickerView selectedRowInComponent:0]];
+        }
+        
+    }
 }
 
 @end

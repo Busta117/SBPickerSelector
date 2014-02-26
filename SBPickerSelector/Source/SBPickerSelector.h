@@ -22,6 +22,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @optional
 -(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 -(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
 -(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 @end
 
@@ -38,6 +39,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePickerView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) NSMutableArray *pickerData;
@@ -47,9 +50,12 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @property (nonatomic, weak) id pickerId;
 @property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
+@property (nonatomic, strong) NSString *doneButtonTitle;
+@property (nonatomic, strong) NSString *cancelButtonTitle;
 
 
 + (SBPickerSelector *) picker;
++ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName;
 - (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view;
 - (void) showPickerOver:(UIViewController *)parent;
 
