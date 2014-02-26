@@ -5,9 +5,21 @@ easy framework to setup pickers in your iOS project, easy picker manager.
 
 you can see how to works in the example project the file named <b>"SBViewController"</b> in the method <b>showPicker:</b>
 
-###How to use
+### Installation with CocoaPods
 
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SBPickerSelector in your projects.
+
+#### Podfile
+
+```ruby
+platform :ios, '5.0'
+pod "SBPickerSelector", "~> 1.0.0"
+```
+
+### Installation without CocoaPods
 - import in your project the folder "SBViewController"
+
+###How to use
 
 - in your code import SBPickerSelector.h
 
