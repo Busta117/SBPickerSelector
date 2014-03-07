@@ -16,6 +16,12 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
     SBPickerSelectorTypeText,
 };
 
+typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
+    SBPickerSelectorDateTypeDefault = 0,
+    SBPickerSelectorDateTypeOnlyDay,
+    SBPickerSelectorDateTypeOnlyHour,
+};
+
 
 @protocol SBPickerSelectorDelegate <NSObject>
 
@@ -50,6 +56,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
 @property (nonatomic, weak) id pickerId;
 @property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
+@property (nonatomic, assign) SBPickerSelectorDateType datePickerType;
 @property (nonatomic, strong) NSString *doneButtonTitle;
 @property (nonatomic, strong) NSString *cancelButtonTitle;
 

@@ -13,7 +13,7 @@ you can see how to works in the example project the file named <b>"SBViewControl
 
 ```ruby
 platform :ios, '5.0'
-pod "SBPickerSelector", "~> 1.0.0"
+pod "SBPickerSelector", "~> 1.0.1"
 ```
 
 ### Installation without CocoaPods
@@ -52,6 +52,7 @@ picker.pickerType = SBPickerSelectorTypeText;
 
 picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate methid with date)
 picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
+picker.datePickerType = SBPickerSelectorDateTypeOnlyHour; //type of date picker (complete, only day, only hour)
 
 picker.delegate = self;
 

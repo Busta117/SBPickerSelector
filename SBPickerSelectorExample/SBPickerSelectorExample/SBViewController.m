@@ -62,6 +62,7 @@
     
 //    picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate method with date)
 //    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
+//    picker.datePickerType = SBPickerSelectorDateTypeOnlyHour;
 
 //    [picker showPickerOver:self];
     

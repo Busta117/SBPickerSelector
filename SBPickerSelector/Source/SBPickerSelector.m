@@ -110,6 +110,26 @@
     }
 }
 
+
+- (void) setDatePickerType:(SBPickerSelectorDateType)datePickerType{
+    _datePickerType = datePickerType;
+
+    switch (datePickerType) {
+        case SBPickerSelectorDateTypeDefault:
+            self.datePickerView.datePickerMode = UIDatePickerModeDateAndTime;
+            break;
+        case SBPickerSelectorDateTypeOnlyDay:
+            self.datePickerView.datePickerMode = UIDatePickerModeDate;
+            break;
+        case SBPickerSelectorDateTypeOnlyHour:
+            self.datePickerView.datePickerMode = UIDatePickerModeTime;
+            break;
+        default:
+            break;
+    }
+}
+
+
 - (void) setDoneButtonTitle:(NSString *)doneButtonTitle{
     self.doneButton.title = doneButtonTitle;
 }
