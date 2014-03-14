@@ -129,6 +129,10 @@
     }
 }
 
+- (void) setDefaultDate:(NSDate *)defaultDate{
+    _defaultDate = defaultDate;
+    self.datePickerView.date = defaultDate;
+}
 
 - (void) setDoneButtonTitle:(NSString *)doneButtonTitle{
     self.doneButton.title = doneButtonTitle;
