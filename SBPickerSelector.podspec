@@ -13,9 +13,9 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
     
   s.default_subspec = 'Core'
-
+  s.requires_arc = true
+  
   s.subspec 'Core' do |c|
-    c.requires_arc = true
     c.source_files = 'SBPickerSelector/Source/*'
     c.resources = 'SBPickerSelector/Resources/*'
   end
