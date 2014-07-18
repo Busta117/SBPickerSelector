@@ -41,6 +41,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
     UIViewController *parent_;
     
     UIPopoverController *popOver_;
+    CGPoint origin_;
+    
 }
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;

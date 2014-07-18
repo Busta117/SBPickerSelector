@@ -13,7 +13,7 @@ you can see how to works in the example project the file named <b>"SBViewControl
 
 ```ruby
 platform :ios, '5.0'
-pod "SBPickerSelector", "~> 1.0.1"
+pod "SBPickerSelector", "~> 1.0.2"
 ```
 
 ### Installation without CocoaPods
