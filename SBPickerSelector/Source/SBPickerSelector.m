@@ -11,12 +11,12 @@
 
 @implementation SBPickerSelector
 
-+ (SBPickerSelector *) picker {
-    return [SBPickerSelector pickerWithNibName:@"SBPickerSelector"];
++ (instancetype) picker {
+    return [self pickerWithNibName:@"SBPickerSelector"];
 }
 
-+ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName {
-    SBPickerSelector *instance = [[SBPickerSelector alloc] initWithNibName:nibName bundle:nil];
++ (instancetype) pickerWithNibName:(NSString*)nibName {
+    SBPickerSelector *instance = [[self alloc] initWithNibName:nibName bundle:nil];
     instance.pickerData = [NSMutableArray arrayWithCapacity:0];
     instance.numberOfComponents = 1;
     return instance;
