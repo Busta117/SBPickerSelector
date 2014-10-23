@@ -278,6 +278,13 @@
 - (IBAction)setAction:(id)sender {
     if (self.pickerType == SBPickerSelectorTypeDate) {
         
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+        if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:dateSelected:)]) {
+            [self.delegate SBPickerSelector:self dateSelected:self.datePickerView.date];
+        }
+#pragma GCC diagnostic pop
+        
         if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:dateSelected:)]) {
             [self.delegate pickerSelector:self dateSelected:self.datePickerView.date];
         }
@@ -299,8 +306,15 @@
             }
         }
         
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         if ([self.delegate respondsToSelector:@selector(SBPickerSelector:selectedValue:index:)]) {
             [self.delegate SBPickerSelector:self selectedValue:str index:[self.pickerView selectedRowInComponent:0]];
+        }
+#pragma GCC diagnostic pop
+        
+        if ([self.delegate respondsToSelector:@selector(pickerSelector:selectedValue:index:)]) {
+            [self.delegate pickerSelector:self selectedValue:str index:[self.pickerView selectedRowInComponent:0]];
         }
 
     }
@@ -310,8 +324,15 @@
 
 
 - (IBAction)cancelAction:(id)sender {
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:cancelPicker:)]) {
         [self.delegate SBPickerSelector:self cancelPicker:YES];
+    }
+#pragma GCC diagnostic pop
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:cancelPicker:)]) {
+        [self.delegate pickerSelector:self cancelPicker:YES];
     }
     [self dismissPicker];
 }
@@ -363,10 +384,17 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     if (self.pickerType == SBPickerSelectorTypeDate) {
-        
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
             [self.delegate SBPickerSelector:self intermediatelySelectedValue:self.datePickerView.date atIndex:0];
         }
+#pragma GCC diagnostic pop
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate pickerSelector:self intermediatelySelectedValue:self.datePickerView.date atIndex:0];
+        }
+        
         return;
     }
     
