@@ -72,8 +72,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (nonatomic, strong) NSString *cancelButtonTitle;
 
 
-+ (SBPickerSelector *) picker;
-+ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName;
++ (instancetype) picker;
++ (instancetype) pickerWithNibName:(NSString*)nibName;
 - (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view;
 - (void) showPickerOver:(UIViewController *)parent;
 
