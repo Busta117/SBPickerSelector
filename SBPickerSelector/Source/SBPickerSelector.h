@@ -26,10 +26,17 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @protocol SBPickerSelectorDelegate <NSObject>
 
 @optional
--(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
--(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
--(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
--(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
+-(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:dateSelected");
+-(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:selectedValue:index:");
+-(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:intermediatelySelectedValue:atIndex:");
+-(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:cancelPicker");
+
+-(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
+-(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
+
+
 @end
 
 
@@ -49,6 +56,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePickerView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
+@property (weak, nonatomic) IBOutlet UIToolbar *optionsToolBar;
 
 @property (nonatomic, strong) UIView *background;
 @property (nonatomic, strong) NSMutableArray *pickerData;
@@ -64,8 +72,8 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (nonatomic, strong) NSString *cancelButtonTitle;
 
 
-+ (instancetype) picker;
-+ (instancetype) pickerWithNibName:(NSString*)nibName;
++ (SBPickerSelector *) picker;
++ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName;
 - (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view;
 - (void) showPickerOver:(UIViewController *)parent;
 

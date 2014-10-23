@@ -1,7 +1,7 @@
 SBPickerSelector
 ================
 
-easy framework to setup pickers in your iOS project, easy picker manager.
+easy framework to setup pickers in your iOS project, easy picker manager, now with swift compatibility
 
 you can see how to works in the example project the file named <b>"SBViewController"</b> in the method <b>showPicker:</b>
 
@@ -18,7 +18,7 @@ you can see how to works in the example project the file named <b>"SBViewControl
 
 ```ruby
 platform :ios, '5.0'
-pod "SBPickerSelector", "~> 1.0.2"
+pod 'SBPickerSelector'
 ```
 
 ### Installation without CocoaPods
@@ -37,16 +37,16 @@ pod "SBPickerSelector", "~> 1.0.2"
 - add delegate methods depends of your necesities
 ```objective-c
 //if your piker is a traditional selection
--(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 
 //if your picker is a date selection
--(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
+-(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
 
 //when picker value is changing
--(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
 
 //if the user cancel the picker
--(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
+-(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 ```
 - in your code add follow code when you need show the picker
 ```objective-c

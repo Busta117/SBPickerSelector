@@ -11,12 +11,12 @@
 
 @implementation SBPickerSelector
 
-+ (instancetype) picker {
-    return [self pickerWithNibName:@"SBPickerSelector"];
++ (SBPickerSelector *) picker {
+    return [SBPickerSelector pickerWithNibName:@"SBPickerSelector"];
 }
 
-+ (instancetype) pickerWithNibName:(NSString*)nibName {
-    SBPickerSelector *instance = [[self alloc] initWithNibName:nibName bundle:nil];
++ (SBPickerSelector *) pickerWithNibName:(NSString*)nibName {
+    SBPickerSelector *instance = [[SBPickerSelector alloc] initWithNibName:nibName bundle:nil];
     instance.pickerData = [NSMutableArray arrayWithCapacity:0];
     instance.numberOfComponents = 1;
     return instance;
@@ -278,8 +278,8 @@
 - (IBAction)setAction:(id)sender {
     if (self.pickerType == SBPickerSelectorTypeDate) {
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(SBPickerSelector:dateSelected:)]) {
-            [self.delegate SBPickerSelector:self dateSelected:self.datePickerView.date];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:dateSelected:)]) {
+            [self.delegate pickerSelector:self dateSelected:self.datePickerView.date];
         }
             [self dismissPicker];
         return;
