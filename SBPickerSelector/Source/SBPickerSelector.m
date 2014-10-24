@@ -9,6 +9,8 @@
 #import "SBPickerSelector.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
 @implementation SBPickerSelector
 
 + (instancetype) picker {
@@ -43,28 +45,31 @@
     origin_ = CGPointMake(0,CGRectGetMaxY(window.bounds));
     CGPoint target = CGPointMake(0,origin_.y - CGRectGetHeight(frame));
     
-    //only accept orientation in iphone
-    if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad) {
-        
-        switch (orientation) {
-            case UIInterfaceOrientationPortraitUpsideDown:
-                rotateAngle = M_PI;
-                break;
-            case UIInterfaceOrientationLandscapeLeft:
-                rotateAngle = -M_PI/2.0f;
-                screenSize = CGSizeMake(screenSize.height, window.frame.size.height);
-                origin_ = CGPointMake(CGRectGetMaxX(window.bounds),0);
-                target = CGPointMake(origin_.x - CGRectGetHeight(frame),0);
-                break;
-            case UIInterfaceOrientationLandscapeRight:
-                rotateAngle = M_PI/2.0f;
-                screenSize = CGSizeMake(screenSize.height,window.frame.size.height);
-                origin_ = CGPointMake(-CGRectGetHeight(frame),0);
-                target = CGPointMake(origin_.x + CGRectGetHeight(frame),0);
-                break;
-            default: // as UIInterfaceOrientationPortrait
-                rotateAngle = 0.0;
-                break;
+    
+    if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+        //only accept orientation in iphone
+        if ([[UIDevice currentDevice] userInterfaceIdiom] != UIUserInterfaceIdiomPad) {
+            
+            switch (orientation) {
+                case UIInterfaceOrientationPortraitUpsideDown:
+                    rotateAngle = M_PI;
+                    break;
+                case UIInterfaceOrientationLandscapeLeft:
+                    rotateAngle = -M_PI/2.0f;
+                    screenSize = CGSizeMake(screenSize.height, window.frame.size.height);
+                    origin_ = CGPointMake(CGRectGetMaxX(window.bounds),0);
+                    target = CGPointMake(origin_.x - CGRectGetHeight(frame),0);
+                    break;
+                case UIInterfaceOrientationLandscapeRight:
+                    rotateAngle = M_PI/2.0f;
+                    screenSize = CGSizeMake(screenSize.height,window.frame.size.height);
+                    origin_ = CGPointMake(-CGRectGetHeight(frame),0);
+                    target = CGPointMake(origin_.x + CGRectGetHeight(frame),0);
+                    break;
+                default: // as UIInterfaceOrientationPortrait
+                    rotateAngle = 0.0;
+                    break;
+            }
         }
     }
     
@@ -93,6 +98,7 @@
                                                      name:UIApplicationDidChangeStatusBarOrientationNotification
                                                    object:nil];
     }
+            
     
 }
 
@@ -102,6 +108,7 @@
     
     UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
     CGRect orientationFrame = [UIScreen mainScreen].bounds;
+    
     
     if(notification != nil) {
         NSDictionary* keyboardInfo = [notification userInfo];
@@ -117,44 +124,63 @@
     
     UIWindow * window = [[UIApplication sharedApplication] keyWindow];
     
-    CGFloat rotateAngle;
+    CGFloat rotateAngle = 0;
     __block CGRect frame = self.view.frame;
     frame.size = [self pickerSize];
     CGSize screenSize = CGSizeMake(window.frame.size.width, [self pickerSize].height);
     origin_ = CGPointMake(0,CGRectGetMaxY(window.bounds));
     CGPoint target = CGPointMake(0,origin_.y - CGRectGetHeight(frame));
     
+    
     switch (orientation) {
         case UIInterfaceOrientationPortraitUpsideDown:
             rotateAngle = M_PI;
             break;
         case UIInterfaceOrientationLandscapeLeft:
+            
             rotateAngle = -M_PI/2.0f;
-            screenSize = CGSizeMake(screenSize.height, window.frame.size.height);
-            origin_ = CGPointMake(CGRectGetMaxX(window.bounds),0);
-            target = CGPointMake(origin_.x - CGRectGetHeight(frame),0);
+            
+            if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+                screenSize = CGSizeMake(screenSize.height, window.frame.size.height);
+                origin_ = CGPointMake(CGRectGetMaxX(window.bounds),0);
+                target = CGPointMake(origin_.x - CGRectGetHeight(frame),0);
+            }else{
+                target = CGPointMake(0,origin_.y - CGRectGetHeight(frame));
+            }
+            
             break;
         case UIInterfaceOrientationLandscapeRight:
             rotateAngle = M_PI/2.0f;
-            screenSize = CGSizeMake(screenSize.height,window.frame.size.height);
-            origin_ = CGPointMake(-CGRectGetHeight(frame),0);
-            target = CGPointMake(origin_.x + CGRectGetHeight(frame),0);
+            
+            if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+                screenSize = CGSizeMake(screenSize.height,window.frame.size.height);
+                origin_ = CGPointMake(-CGRectGetHeight(frame),0);
+                target = CGPointMake(origin_.x + CGRectGetHeight(frame),0);
+            }else{
+                target = CGPointMake(0,origin_.y - CGRectGetHeight(frame));
+            }
             break;
         default: // as UIInterfaceOrientationPortrait
             rotateAngle = 0.0;
             break;
     }
     
-    [UIView animateWithDuration:animationDuration
-                          delay:0
-                        options:UIViewAnimationOptionAllowUserInteraction
-                     animations:^{
-                         self.view.transform = CGAffineTransformMakeRotation(rotateAngle);
-                         frame.origin = target;
-                         frame.size = screenSize;
-                         self.view.frame = frame;
-                     } completion:NULL];
-
+    
+    [UIView animateWithDuration:animationDuration delay:0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+        
+        if (SYSTEM_VERSION_LESS_THAN(@"8.0")) {
+            self.view.transform = CGAffineTransformMakeRotation(rotateAngle);
+            frame.origin = target;
+            frame.size = screenSize;
+            self.view.frame = frame;
+        }else{
+            frame.origin = target;
+            self.view.frame = frame;
+            self.background.transform = CGAffineTransformMakeRotation(-rotateAngle);
+            self.background.frame = window.frame;
+        }
+    } completion:NULL];
+    
     
 }
 
@@ -192,11 +218,11 @@
         [self.view addSubview:self.datePickerView];
         
         
-        frame.size.height = CGRectGetHeight(toolBar_.frame) + CGRectGetHeight(self.datePickerView.frame);
+        frame.size.height = CGRectGetHeight(self.optionsToolBar.frame) + CGRectGetHeight(self.datePickerView.frame);
         self.view.frame = frame;
         
         frame = self.datePickerView.frame;
-        frame.origin.y = CGRectGetMaxY(toolBar_.frame);
+        frame.origin.y = CGRectGetMaxY(self.optionsToolBar.frame);
         self.datePickerView.frame = frame;
  
     }else{
@@ -204,7 +230,7 @@
         [self.view addSubview:self.pickerView];
         
         frame = self.pickerView.frame;
-        frame.origin.y = CGRectGetMaxY(toolBar_.frame);
+        frame.origin.y = CGRectGetMaxY(self.optionsToolBar.frame);
         self.pickerView.frame = frame;
         
     }
@@ -214,10 +240,10 @@
     CGSize size = self.view.frame.size;
     
     if (_pickerType == SBPickerSelectorTypeDate) {
-        size.height = CGRectGetHeight(toolBar_.frame) + CGRectGetHeight(self.datePickerView.frame);
+        size.height = CGRectGetHeight(self.optionsToolBar.frame) + CGRectGetHeight(self.datePickerView.frame);
         size.width = CGRectGetWidth(self.datePickerView.frame);
     }else{
-        size.height = CGRectGetHeight(toolBar_.frame) + CGRectGetHeight(self.pickerView.frame);
+        size.height = CGRectGetHeight(self.optionsToolBar.frame) + CGRectGetHeight(self.pickerView.frame);
         size.width = CGRectGetWidth(self.pickerView.frame);
     }
     

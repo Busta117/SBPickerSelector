@@ -43,8 +43,6 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @interface SBPickerSelector : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     
-    __weak IBOutlet UIToolbar *toolBar_;
-    
     UIViewController *parent_;
     
     UIPopoverController *popOver_;
