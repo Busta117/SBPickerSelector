@@ -1,0 +1,461 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52D8FF7119FA1ADF0062090E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8FF7019FA1ADF0062090E /* AppDelegate.swift */; };
+		52D8FF7319FA1ADF0062090E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8FF7219FA1ADF0062090E /* ViewController.swift */; };
+		52D8FF7619FA1ADF0062090E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D8FF7419FA1ADF0062090E /* Main.storyboard */; };
+		52D8FF7819FA1ADF0062090E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D8FF7719FA1ADF0062090E /* Images.xcassets */; };
+		52D8FF7B19FA1ADF0062090E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D8FF7919FA1ADF0062090E /* LaunchScreen.xib */; };
+		52D8FF8719FA1AE00062090E /* swift_SBPickerSelectorExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D8FF8619FA1AE00062090E /* swift_SBPickerSelectorExampleTests.swift */; };
+		52D8FF9619FA1AEB0062090E /* SBPickerSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52D8FF9219FA1AEB0062090E /* SBPickerSelector.xib */; };
+		52D8FF9719FA1AEB0062090E /* SBPickerSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D8FF9519FA1AEB0062090E /* SBPickerSelector.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52D8FF8119FA1ADF0062090E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D8FF6319FA1ADF0062090E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52D8FF6A19FA1ADF0062090E;
+			remoteInfo = "swift-SBPickerSelectorExample";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52D8FF6B19FA1ADF0062090E /* swift-SBPickerSelectorExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-SBPickerSelectorExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D8FF6F19FA1ADF0062090E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D8FF7019FA1ADF0062090E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52D8FF7219FA1ADF0062090E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		52D8FF7519FA1ADF0062090E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52D8FF7719FA1ADF0062090E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		52D8FF7A19FA1ADF0062090E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		52D8FF8019FA1ADF0062090E /* swift-SBPickerSelectorExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "swift-SBPickerSelectorExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D8FF8519FA1AE00062090E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D8FF8619FA1AE00062090E /* swift_SBPickerSelectorExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift_SBPickerSelectorExampleTests.swift; sourceTree = "<group>"; };
+		52D8FF9219FA1AEB0062090E /* SBPickerSelector.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SBPickerSelector.xib; sourceTree = "<group>"; };
+		52D8FF9419FA1AEB0062090E /* SBPickerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPickerSelector.h; sourceTree = "<group>"; };
+		52D8FF9519FA1AEB0062090E /* SBPickerSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPickerSelector.m; sourceTree = "<group>"; };
+		52D8FF9919FA1D380062090E /* swift-SBPickerSelectorExample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "swift-SBPickerSelectorExample-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52D8FF6819FA1ADF0062090E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D8FF7D19FA1ADF0062090E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52D8FF6219FA1ADF0062090E = {
+			isa = PBXGroup;
+			children = (
+				52D8FF9919FA1D380062090E /* swift-SBPickerSelectorExample-Bridging-Header.h */,
+				52D8FF9019FA1AEB0062090E /* SBPickerSelector */,
+				52D8FF6D19FA1ADF0062090E /* swift-SBPickerSelectorExample */,
+				52D8FF8319FA1AE00062090E /* swift-SBPickerSelectorExampleTests */,
+				52D8FF6C19FA1ADF0062090E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52D8FF6C19FA1ADF0062090E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF6B19FA1ADF0062090E /* swift-SBPickerSelectorExample.app */,
+				52D8FF8019FA1ADF0062090E /* swift-SBPickerSelectorExampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52D8FF6D19FA1ADF0062090E /* swift-SBPickerSelectorExample */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF7019FA1ADF0062090E /* AppDelegate.swift */,
+				52D8FF7219FA1ADF0062090E /* ViewController.swift */,
+				52D8FF7419FA1ADF0062090E /* Main.storyboard */,
+				52D8FF7719FA1ADF0062090E /* Images.xcassets */,
+				52D8FF7919FA1ADF0062090E /* LaunchScreen.xib */,
+				52D8FF6E19FA1ADF0062090E /* Supporting Files */,
+			);
+			path = "swift-SBPickerSelectorExample";
+			sourceTree = "<group>";
+		};
+		52D8FF6E19FA1ADF0062090E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF6F19FA1ADF0062090E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52D8FF8319FA1AE00062090E /* swift-SBPickerSelectorExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF8619FA1AE00062090E /* swift_SBPickerSelectorExampleTests.swift */,
+				52D8FF8419FA1AE00062090E /* Supporting Files */,
+			);
+			path = "swift-SBPickerSelectorExampleTests";
+			sourceTree = "<group>";
+		};
+		52D8FF8419FA1AE00062090E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF8519FA1AE00062090E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52D8FF9019FA1AEB0062090E /* SBPickerSelector */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF9119FA1AEB0062090E /* Resources */,
+				52D8FF9319FA1AEB0062090E /* Source */,
+			);
+			name = SBPickerSelector;
+			path = ../SBPickerSelector;
+			sourceTree = "<group>";
+		};
+		52D8FF9119FA1AEB0062090E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF9219FA1AEB0062090E /* SBPickerSelector.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		52D8FF9319FA1AEB0062090E /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				52D8FF9419FA1AEB0062090E /* SBPickerSelector.h */,
+				52D8FF9519FA1AEB0062090E /* SBPickerSelector.m */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52D8FF6A19FA1ADF0062090E /* swift-SBPickerSelectorExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D8FF8A19FA1AE00062090E /* Build configuration list for PBXNativeTarget "swift-SBPickerSelectorExample" */;
+			buildPhases = (
+				52D8FF6719FA1ADF0062090E /* Sources */,
+				52D8FF6819FA1ADF0062090E /* Frameworks */,
+				52D8FF6919FA1ADF0062090E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-SBPickerSelectorExample";
+			productName = "swift-SBPickerSelectorExample";
+			productReference = 52D8FF6B19FA1ADF0062090E /* swift-SBPickerSelectorExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52D8FF7F19FA1ADF0062090E /* swift-SBPickerSelectorExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D8FF8D19FA1AE00062090E /* Build configuration list for PBXNativeTarget "swift-SBPickerSelectorExampleTests" */;
+			buildPhases = (
+				52D8FF7C19FA1ADF0062090E /* Sources */,
+				52D8FF7D19FA1ADF0062090E /* Frameworks */,
+				52D8FF7E19FA1ADF0062090E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52D8FF8219FA1ADF0062090E /* PBXTargetDependency */,
+			);
+			name = "swift-SBPickerSelectorExampleTests";
+			productName = "swift-SBPickerSelectorExampleTests";
+			productReference = 52D8FF8019FA1ADF0062090E /* swift-SBPickerSelectorExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52D8FF6319FA1ADF0062090E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Santiago Bustamante";
+				TargetAttributes = {
+					52D8FF6A19FA1ADF0062090E = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					52D8FF7F19FA1ADF0062090E = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 52D8FF6A19FA1ADF0062090E;
+					};
+				};
+			};
+			buildConfigurationList = 52D8FF6619FA1ADF0062090E /* Build configuration list for PBXProject "swift-SBPickerSelectorExample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52D8FF6219FA1ADF0062090E;
+			productRefGroup = 52D8FF6C19FA1ADF0062090E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52D8FF6A19FA1ADF0062090E /* swift-SBPickerSelectorExample */,
+				52D8FF7F19FA1ADF0062090E /* swift-SBPickerSelectorExampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52D8FF6919FA1ADF0062090E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D8FF7619FA1ADF0062090E /* Main.storyboard in Resources */,
+				52D8FF9619FA1AEB0062090E /* SBPickerSelector.xib in Resources */,
+				52D8FF7B19FA1ADF0062090E /* LaunchScreen.xib in Resources */,
+				52D8FF7819FA1ADF0062090E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D8FF7E19FA1ADF0062090E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52D8FF6719FA1ADF0062090E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D8FF9719FA1AEB0062090E /* SBPickerSelector.m in Sources */,
+				52D8FF7319FA1ADF0062090E /* ViewController.swift in Sources */,
+				52D8FF7119FA1ADF0062090E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D8FF7C19FA1ADF0062090E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D8FF8719FA1AE00062090E /* swift_SBPickerSelectorExampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52D8FF8219FA1ADF0062090E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52D8FF6A19FA1ADF0062090E /* swift-SBPickerSelectorExample */;
+			targetProxy = 52D8FF8119FA1ADF0062090E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52D8FF7419FA1ADF0062090E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D8FF7519FA1ADF0062090E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52D8FF7919FA1ADF0062090E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D8FF7A19FA1ADF0062090E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52D8FF8819FA1AE00062090E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52D8FF8919FA1AE00062090E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52D8FF8B19FA1AE00062090E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "swift-SBPickerSelectorExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-SBPickerSelectorExample-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		52D8FF8C19FA1AE00062090E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "swift-SBPickerSelectorExample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "swift-SBPickerSelectorExample-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		52D8FF8E19FA1AE00062090E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "swift-SBPickerSelectorExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-SBPickerSelectorExample.app/swift-SBPickerSelectorExample";
+			};
+			name = Debug;
+		};
+		52D8FF8F19FA1AE00062090E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "swift-SBPickerSelectorExampleTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/swift-SBPickerSelectorExample.app/swift-SBPickerSelectorExample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52D8FF6619FA1ADF0062090E /* Build configuration list for PBXProject "swift-SBPickerSelectorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D8FF8819FA1AE00062090E /* Debug */,
+				52D8FF8919FA1AE00062090E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52D8FF8A19FA1AE00062090E /* Build configuration list for PBXNativeTarget "swift-SBPickerSelectorExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D8FF8B19FA1AE00062090E /* Debug */,
+				52D8FF8C19FA1AE00062090E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52D8FF8D19FA1AE00062090E /* Build configuration list for PBXNativeTarget "swift-SBPickerSelectorExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D8FF8E19FA1AE00062090E /* Debug */,
+				52D8FF8F19FA1AE00062090E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52D8FF6319FA1ADF0062090E /* Project object */;
+}

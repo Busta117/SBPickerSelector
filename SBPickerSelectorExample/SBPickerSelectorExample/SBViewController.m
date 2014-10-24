@@ -76,11 +76,11 @@
 
 
 #pragma mark - SBPickerSelectorDelegate
--(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
+-(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx{
     resultLbl_.text = value;
 }
 
--(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
+-(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date{
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
@@ -88,15 +88,15 @@
     resultLbl_.text = [dateFormat stringFromDate:date];
 }
 
--(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel{
+-(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel{
     NSLog(@"press cancel");
 }
 
--(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx{
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx{
     if ([value isMemberOfClass:[NSDate class]]) {
-        [self SBPickerSelector:selector dateSelected:value];
+        [self pickerSelector:selector dateSelected:value];
     }else{
-        [self SBPickerSelector:selector selectedValue:value index:idx];
+        [self pickerSelector:selector selectedValue:value index:idx];
     }
 }
 
