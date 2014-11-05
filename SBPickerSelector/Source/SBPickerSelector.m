@@ -438,9 +438,16 @@
             }
         }
         
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
         if ([self.delegate respondsToSelector:@selector(SBPickerSelector:intermediatelySelectedValue:atIndex:)]) {
             [self.delegate SBPickerSelector:self intermediatelySelectedValue:str atIndex:[self.pickerView selectedRowInComponent:0]];
         }
+#pragma GCC diagnostic pop
+        if ([self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValue:atIndex:)]) {
+            [self.delegate pickerSelector:self intermediatelySelectedValue:str atIndex:[self.pickerView selectedRowInComponent:0]];
+        }
+
         
     }
 }
