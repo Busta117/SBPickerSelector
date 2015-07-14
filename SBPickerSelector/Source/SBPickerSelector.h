@@ -1,35 +1,31 @@
-//
-//  SBPickerSelector.h
-//  SBPickerSelector
-//
-//  Created by Santiago Bustamante on 1/24/14.
-//  Copyright (c) 2014 Busta117. All rights reserved.
-//
+	//
+	//  SBPickerSelector.h
+	//  SBPickerSelector
+	//
+	//  Created by Santiago Bustamante on 1/24/14.
+	//  Copyright (c) 2014 Busta117. All rights reserved.
+	//
 
 #import <UIKit/UIKit.h>
 
 @class SBPickerSelector;
 
 typedef NS_ENUM(NSInteger, SBPickerSelectorType) {
-    SBPickerSelectorTypeNumerical = 0,
-    SBPickerSelectorTypeDate,
-    SBPickerSelectorTypeText,
+	SBPickerSelectorTypeNumerical = 0,
+	SBPickerSelectorTypeDate,
+	SBPickerSelectorTypeText,
 };
 
 typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
-    SBPickerSelectorDateTypeDefault = 0,
-    SBPickerSelectorDateTypeOnlyDay,
-    SBPickerSelectorDateTypeOnlyHour,
+	SBPickerSelectorDateTypeDefault = 0,
+	SBPickerSelectorDateTypeOnlyDay,
+	SBPickerSelectorDateTypeOnlyHour,
 };
 
 
 @protocol SBPickerSelectorDelegate <NSObject>
 
 @optional
--(void) SBPickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:dateSelected");
--(void) SBPickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:selectedValue:index:");
--(void) SBPickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:intermediatelySelectedValue:atIndex:");
--(void) SBPickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel DEPRECATED_MSG_ATTRIBUTE("use pickerSelector:cancelPicker");
 
 -(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 -(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
@@ -42,12 +38,12 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 
 @interface SBPickerSelector : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 {
-    
-    UIViewController *parent_;
-    
-    UIPopoverController *popOver_;
-    CGPoint origin_;
-    
+	
+	UIViewController *parent_;
+	
+	UIPopoverController *popOver_;
+	CGPoint origin_;
+	
 }
 
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView;

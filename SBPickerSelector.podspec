@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SBPickerSelector"
-  s.version = "1.0.7"
+  s.version = "1.0.8"
   s.summary = "Easy framework to setup pickers in your iOS project, easy picker manager."
   s.homepage = "https://github.com/Busta117/SBPickerSelector"
   s.license = { :type => 'MIT', :file => 'LICENSE'}
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
       :tag => s.version.to_s
     }
         
-  s.ios.deployment_target = '5.0'
+  s.ios.deployment_target = '6.0'
     
   s.default_subspec = 'Core'
   s.requires_arc = true
