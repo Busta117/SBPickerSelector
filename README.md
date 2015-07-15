@@ -17,7 +17,7 @@ you can see how to works in the example project the file named <b>"SBViewControl
 #### Podfile
 
 ```ruby
-platform :ios, '5.0'
+platform :ios, '6.0'
 pod 'SBPickerSelector'
 ```
 
@@ -32,7 +32,10 @@ pod 'SBPickerSelector'
 ```
 <b>swift:</b>
 ```swift
+
 #import "SBPickerSelector.h" //in your -Bridging-Header.h file
+#//if you are using frameworks:
+#import SBPickerSelector //in the class where you will use it
 ```
 - implement delegate in your class
 ```objective-c
