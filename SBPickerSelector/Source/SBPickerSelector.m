@@ -311,7 +311,7 @@
 		return;
 	}
 	
-	if (self.delegate) {
+    if (self.delegate && self.pickerData.count > 0) {
 		NSMutableString *str = [NSMutableString stringWithString:@""];
 		for (int i = 0; i < self.numberOfComponents; i++) {
 			if (self.numberOfComponents == 1) {
@@ -399,7 +399,7 @@
 		return;
 	}
 	
-	if (self.delegate) {
+    if (self.delegate && self.pickerData.count > 0) {
 		NSMutableString *str = [NSMutableString stringWithString:@""];
 		for (int i = 0; i < self.numberOfComponents; i++) {
 			if (self.numberOfComponents == 1) {
