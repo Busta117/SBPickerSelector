@@ -29,7 +29,7 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
         //setup here your picker
         //*********************
         
-        var picker: SBPickerSelector = SBPickerSelector.picker()
+        let picker: SBPickerSelector = SBPickerSelector.picker()
         
         picker.pickerData = ["one","two","three","four","five","six"] //picker content
         picker.delegate = self
@@ -37,13 +37,15 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
         picker.doneButtonTitle = "Done"
         picker.cancelButtonTitle = "Cancel"
 
-//        picker.pickerType = SBPickerSelectorType.Date //select date(needs implements delegate method with date)
-//        picker.datePickerType = SBPickerSelectorDateType.OnlyHour
+//		picker.pickerType = SBPickerSelectorType.Date //select date(needs implements delegate method with date)
+//        picker.datePickerType = SBPickerSelectorDateType.OnlyMonthAndYear
+//		picker.minYear = 2015
+//		picker.maxYear = 2051
 
         
 //        picker.showPickerOver(self)
         
-        var point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
+        let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
         var frame: CGRect = sender.frame
         frame.origin = point
         picker.showPickerIpadFromRect(frame, inView: view)
@@ -59,21 +61,21 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
     
     func pickerSelector(selector: SBPickerSelector!, dateSelected date: NSDate!) {
     
-        var dateFormat = NSDateFormatter()
+        let dateFormat = NSDateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
         resultLbl.text = dateFormat.stringFromDate(date)
     }
     
 
     func pickerSelector(selector: SBPickerSelector!, cancelPicker cancel: Bool) {
-        println("press cancel")
+        print("press cancel")
     }
     
     func pickerSelector(selector: SBPickerSelector!, intermediatelySelectedValue value: AnyObject!, atIndex idx: Int) {
         if value.isMemberOfClass(NSDate){
-            pickerSelector(selector, dateSelected: value as NSDate)
+            pickerSelector(selector, dateSelected: value as! NSDate)
         }else{
-            pickerSelector(selector, selectedValue: value as String, index: idx)
+            pickerSelector(selector, selectedValue: value as! String, index: idx)
         }
     }
     

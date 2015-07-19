@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 	SBPickerSelectorDateTypeDefault = 0,
 	SBPickerSelectorDateTypeOnlyDay,
 	SBPickerSelectorDateTypeOnlyHour,
+	SBPickerSelectorDateTypeOnlyMonthAndYear
 };
 
 
@@ -53,7 +54,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (weak, nonatomic) IBOutlet UIToolbar *optionsToolBar;
 
 @property (nonatomic, strong) UIView *background;
-@property (nonatomic, strong) NSMutableArray *pickerData;
+@property (nonatomic, strong) NSArray *pickerData;
 @property (nonatomic, assign) SBPickerSelectorType pickerType;
 @property (nonatomic, weak) id<SBPickerSelectorDelegate> delegate;
 @property (nonatomic, assign) int numberOfComponents;
@@ -64,6 +65,10 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (nonatomic, strong) NSDate *defaultDate;
 @property (nonatomic, strong) NSString *doneButtonTitle;
 @property (nonatomic, strong) NSString *cancelButtonTitle;
+
+	//for month and year selection (default, min:2008, max: 2030)
+@property (nonatomic, assign) int minYear;
+@property (nonatomic, assign) int maxYear;
 
 
 + (instancetype) picker;

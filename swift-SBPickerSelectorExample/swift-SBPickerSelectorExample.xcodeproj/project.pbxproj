@@ -191,6 +191,8 @@
 		52D8FF6319FA1ADF0062090E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Santiago Bustamante";
 				TargetAttributes = {
@@ -446,6 +448,7 @@
 				52D8FF8C19FA1AE00062090E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52D8FF8D19FA1AE00062090E /* Build configuration list for PBXNativeTarget "swift-SBPickerSelectorExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +457,7 @@
 				52D8FF8F19FA1AE00062090E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

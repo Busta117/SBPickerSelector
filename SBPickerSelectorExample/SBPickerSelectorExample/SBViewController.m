@@ -54,15 +54,14 @@
     
     SBPickerSelector *picker = [SBPickerSelector picker];
     
-    picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
+//    picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
     picker.delegate = self;
-    picker.pickerType = SBPickerSelectorTypeText;
+//    picker.pickerType = SBPickerSelectorTypeText;
     picker.doneButtonTitle = @"Done";
     picker.cancelButtonTitle = @"Cancel";
     
-//    picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate method with date)
-//    picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
-//    picker.datePickerType = SBPickerSelectorDateTypeOnlyHour;
+    picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate method with date)
+    picker.datePickerType = SBPickerSelectorDateTypeOnlyMonthAndYear;
 
 //    [picker showPickerOver:self];
     
