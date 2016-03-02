@@ -75,6 +75,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 + (instancetype) pickerWithNibName:(NSString*)nibName;
 - (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view;
 - (void) showPickerOver:(UIViewController *)parent;
+- (void) setMaximumDateAllowed: (NSDate*)allowedDate;
 
 
 @end
