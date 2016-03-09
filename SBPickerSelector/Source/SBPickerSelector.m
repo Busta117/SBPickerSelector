@@ -258,6 +258,12 @@
 	}
 }
 
+- (void) setMaximumDateAllowed: (NSDate*)allowedDate {
+    
+    self.datePickerView.maximumDate = allowedDate;
+    
+}
+
 -(CGSize) pickerSize{
 	CGSize size = self.view.frame.size;
 	
