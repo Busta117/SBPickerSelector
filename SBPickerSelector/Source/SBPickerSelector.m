@@ -380,29 +380,51 @@
 		if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:dateSelected:)]) {
 			[self.delegate pickerSelector:self dateSelected:self.datePickerView.date];
 		}
+        
 		[self dismissPicker];
 		return;
 	}
 	
     if (self.delegate && self.pickerData.count > 0) {
+        
+        NSMutableArray *values = [NSMutableArray new];
+        NSMutableArray *indexes = [NSMutableArray new];
+        
 		NSMutableString *str = [NSMutableString stringWithString:@""];
 		for (int i = 0; i < self.numberOfComponents; i++) {
 			if (self.numberOfComponents == 1) {
-				[str appendString:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
+                int rowSelected = [self.pickerView selectedRowInComponent:i];
+                
+				[str appendString:self.pickerData[rowSelected]];
+                
+                [values addObject:self.pickerData[rowSelected]];
+                [indexes addObject:[NSNumber numberWithInt:rowSelected]];
+                
 			}else{
-				NSMutableArray *componentData = self.pickerData[i];
-				[str appendString:componentData[[self.pickerView selectedRowInComponent:i]]];
-				if (i<self.numberOfComponents-1) {
-					[str appendString:@" "];
-				}
+                
+                int rowSelected = [self.pickerView selectedRowInComponent:i];
+                
+                NSMutableArray *componentData = self.pickerData[i];
+                [str appendString:componentData[rowSelected]];
+                if (i<self.numberOfComponents-1) {
+                    [str appendString:@" "];
+                }
+                
+                [values addObject:componentData[rowSelected]];
+                [indexes addObject:[NSNumber numberWithInt:rowSelected]];
+                
 			}
 		}
 		
-		
+		//deprecated
 		if ([self.delegate respondsToSelector:@selector(pickerSelector:selectedValue:index:)]) {
 			[self.delegate pickerSelector:self selectedValue:str index:[self.pickerView selectedRowInComponent:0]];
 		}
 		
+        if ([self.delegate respondsToSelector:@selector(pickerSelector:selectedValues:atIndexes:)]) {
+            [self.delegate pickerSelector:self selectedValues:values atIndexes:indexes];
+        }
+        
 	}
 	
 	[self dismissPicker];
@@ -464,31 +486,56 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
 	if (self.pickerType == SBPickerSelectorTypeDate) {
-		
+		//deprecated
 		if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValue:atIndex:)]) {
 			[self.delegate pickerSelector:self intermediatelySelectedValue:self.datePickerView.date atIndex:0];
 		}
 		
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValues:atIndexes:)]) {
+            [self.delegate pickerSelector:self intermediatelySelectedValues:@[self.datePickerView.date] atIndexes:@[(NSNumber *)0]];
+        }
+        
 		return;
 	}
 	
     if (self.delegate && self.pickerData.count > 0) {
+        
+        NSMutableArray *values = [NSMutableArray new];
+        NSMutableArray *indexes = [NSMutableArray new];
+        
 		NSMutableString *str = [NSMutableString stringWithString:@""];
 		for (int i = 0; i < self.numberOfComponents; i++) {
 			if (self.numberOfComponents == 1) {
+                
+                [values addObject:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
+                [indexes addObject:(NSNumber *)0];
+                
 				[str appendString:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
 			}else{
+                
+                int rowSelected = [self.pickerView selectedRowInComponent:i];
+                
 				NSMutableArray *componentData = self.pickerData[i];
-				[str appendString:componentData[[self.pickerView selectedRowInComponent:i]]];
+				[str appendString:componentData[rowSelected]];
 				if (i<self.numberOfComponents-1) {
 					[str appendString:@" "];
 				}
+                
+                
+                [values addObject:componentData[rowSelected]];
+                [indexes addObject:[NSNumber numberWithInt:rowSelected]];
+                
 			}
 		}
 		
+        //deprecated
 		if ([self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValue:atIndex:)]) {
 			[self.delegate pickerSelector:self intermediatelySelectedValue:str atIndex:[self.pickerView selectedRowInComponent:0]];
 		}
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValues:atIndexes:)]) {
+            [self.delegate pickerSelector:self intermediatelySelectedValues:values atIndexes:indexes];
+        }
 		
 		
 	}

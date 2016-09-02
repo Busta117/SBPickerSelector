@@ -29,8 +29,12 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @optional
 
 -(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
--(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
--(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx __attribute__((deprecated));
+
+-(void) pickerSelector:(SBPickerSelector *)selector selectedValues:(NSArray<NSString *> *)values atIndexes:(NSArray<NSNumber *> *)idxs;
+
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx __attribute__((deprecated));
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValues:(NSArray<NSString *> *)values atIndexes:(NSArray<NSNumber *> *)idxs;
 -(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 
 
@@ -58,7 +62,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (nonatomic, assign) SBPickerSelectorType pickerType;
 @property (nonatomic, weak) id<SBPickerSelectorDelegate> delegate;
 @property (nonatomic, assign) int numberOfComponents;
-@property (nonatomic, weak) id pickerId;
+@property (nonatomic, strong) NSString *pickerId;
 @property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
 @property (nonatomic, assign) SBPickerSelectorDateType datePickerType;
