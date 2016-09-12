@@ -492,7 +492,7 @@
 		}
 		
         if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:intermediatelySelectedValues:atIndexes:)]) {
-            [self.delegate pickerSelector:self intermediatelySelectedValues:@[self.datePickerView.date] atIndexes:@[(NSNumber *)0]];
+            [self.delegate pickerSelector:self intermediatelySelectedValues:@[self.datePickerView.date] atIndexes:@[[NSNumber numberWithInt:0]]];
         }
         
 		return;
@@ -508,7 +508,7 @@
 			if (self.numberOfComponents == 1) {
                 
                 [values addObject:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
-                [indexes addObject:(NSNumber *)0];
+                [indexes addObject:[NSNumber numberWithInt:0]];
                 
 				[str appendString:self.pickerData[[self.pickerView selectedRowInComponent:0]]];
 			}else{
