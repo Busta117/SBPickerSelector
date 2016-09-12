@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SBPickerSelector"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
   s.summary = "Easy framework to setup pickers in your iOS project, easy picker manager."
   s.homepage = "https://github.com/Busta117/SBPickerSelector"
   s.license = { :type => 'MIT', :file => 'LICENSE'}
