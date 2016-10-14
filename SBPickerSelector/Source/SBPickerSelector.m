@@ -29,6 +29,7 @@
 @end
 
 @interface SBPickerSelector()
+@property (assign, nonatomic) BOOL isPopOver;
 @property (strong, nonatomic) SBDatePickerViewMonthYear *dateOnlyMonthYearPickerView;
 
 @end
@@ -211,17 +212,22 @@
 	
 }
 
-- (void) showPickerIpadFromRect:(CGRect)rect inViewController:(UIViewController *)viewController{
+- (void) showPickerFromView:(UIView *)view inViewController:(UIViewController *)viewController{
 	
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.isPopOver = YES;
         self.modalPresentationStyle = UIModalPresentationPopover;
-        self.popoverPresentationController.sourceRect = rect;
-        [viewController presentViewController:self animated:true completion:nil];
+        self.popoverPresentationController.sourceView = view;
+        self.popoverPresentationController.sourceRect = CGRectMake(view.frame.size.width/2, view.frame.size.height/2, 5, 5);
+        [self setPreferredContentSize:[self pickerSize]];
+        [viewController presentViewController:self animated:NO completion:nil];
+        
 	}else{
 		[self showPickerOver:viewController];
 	}
 	
 }
+
 
 - (id) traverseResponderChainForUIViewController:(UIView *)view {
 	id nextResponder = [view nextResponder];
@@ -272,7 +278,7 @@
 -(CGSize) pickerSize{
 	CGSize size = self.view.frame.size;
 	
-	if (_pickerType == SBPickerSelectorTypeDate) {
+	if (self.pickerType == SBPickerSelectorTypeDate && self.datePickerType != SBPickerSelectorDateTypeOnlyMonthAndYear) {
 		size.height = CGRectGetHeight(self.optionsToolBar.frame) + CGRectGetHeight(self.datePickerView.frame);
 		size.width = CGRectGetWidth(self.datePickerView.frame);
 	}else{
@@ -454,6 +460,11 @@
 
 - (void) dismissPicker{
 	
+    if (self.isPopOver){
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
 	[UIView animateWithDuration:0.3 animations:^{
 		self.background.backgroundColor = [self.background.backgroundColor colorWithAlphaComponent:0];
 		CGRect frame = self.view.frame;
@@ -463,7 +474,8 @@
 	} completion:^(BOOL finished) {
 		[self.background removeFromSuperview];
 		[self.view removeFromSuperview];
-		[self removeFromParentViewController];
+        [self removeFromParentViewController];
+		
 	}];
 	
 }

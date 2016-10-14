@@ -27,7 +27,7 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
         
     }
     
-    @IBAction func showPickerAction(_ sender: AnyObject) {
+    @IBAction func showPickerAction(_ sender: UIButton) {
         let picker = SBPickerSelector()
         
         picker.pickerData = ["one","two","three","four","five","six"] //picker content
@@ -37,11 +37,12 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
 //        picker.cancelButtonTitle = "Cancel"
         
         picker.pickerType = SBPickerSelectorType.date //select date(needs implements delegate method with date)
-        picker.datePickerType = SBPickerSelectorDateType.onlyMonthAndYear //type of date picker (complete, only day, only hour)
+        picker.datePickerType = SBPickerSelectorDateType.onlyDay //type of date picker (complete, only day, only hour)
 //        picker.defaultDate = Date(timeIntervalSinceNow: (60*60*24*30*5))
         
         
         picker.showPickerOver(self) //classic picker display
+//        picker.showPicker(from: sender, in: self)
     }
     
     func pickerSelector(_ selector: SBPickerSelector, intermediatelySelectedValues values: [String], atIndexes idxs: [NSNumber]) {
