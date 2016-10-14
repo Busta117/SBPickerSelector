@@ -48,28 +48,28 @@ class className: UIViewController, SBPickerSelectorDelegate
 - add delegate methods depends of your necesities
 ```objective-c
 //if your piker is a traditional selection
--(void) pickerSelector:(SBPickerSelector *)selector selectedValue:(NSString *)value index:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValues:(NSArray<NSString *> *)values;
 //if your picker is a date selection
 -(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
 //when picker value is changing
--(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValue:(id)value atIndex:(NSInteger)idx;
+-(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValues:(NSArray<NSString *> *)values atIndexes:(NSArray<NSNumber *> *)idxs;
 //if the user cancel the picker
 -(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 ```
 <b>swift:</b>
 ```swift
 //if your piker is a traditional selection
-func pickerSelector(selector: SBPickerSelector!, selectedValue value: String!, index idx: Int)
+func pickerSelector(_ selector: SBPickerSelector, selectedValues values: [String], atIndexes idxs: [NSNumber])
 //if your picker is a date selection
-func pickerSelector(selector: SBPickerSelector!, dateSelected date: NSDate!)
+func pickerSelector(_ selector: SBPickerSelector, dateSelected date: Date)
 //when picker value is changing
-func pickerSelector(selector: SBPickerSelector!, intermediatelySelectedValue value: AnyObject!, atIndex idx: Int)
+func pickerSelector(_ selector: SBPickerSelector, intermediatelySelectedValues values: [String], atIndexes idxs: [NSNumber])
 //if the user cancel the picker
-func pickerSelector(selector: SBPickerSelector!, cancelPicker cancel: Bool)
-```
+func pickerSelector(_ selector: SBPickerSelector, cancelPicker cancel: Bool)```
 - in your code add follow code when you need show the picker
+
 ```objective-c
-SBPickerSelector *picker = [SBPickerSelector picker];
+SBPickerSelector *picker = [SBPickerSelector new];
 
 picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
 picker.pickerType = SBPickerSelectorTypeText;
@@ -84,14 +84,14 @@ picker.doneButtonTitle = @"Done";
 picker.cancelButtonTitle = @"Cancel";
 
 
-[picker showPickerOver:self]; //classic picker display 
+[picker showPickerOver:self]; //classic picker display
 
 [picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
 ```
 
 <b>swift:</b>
 ```swift
-var picker: SBPickerSelector = SBPickerSelector.picker()        
+var picker: SBPickerSelector = SBPickerSelector()        
 picker.pickerData = ["one","two","three","four","five","six"] //picker content
 picker.delegate = self
 picker.pickerType = SBPickerSelectorType.Text
@@ -101,7 +101,7 @@ picker.cancelButtonTitle = "Cancel"
 picker.pickerType = SBPickerSelectorType.Date //select date(needs implements delegate method with date)
 picker.datePickerType = SBPickerSelectorDateType.OnlyHour //type of date picker (complete, only day, only hour)
 
-picker.showPickerOver(self) //classic picker display 
+picker.showPickerOver(self) //classic picker display
 
 var point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
 var frame: CGRect = sender.frame
