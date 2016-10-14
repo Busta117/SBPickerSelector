@@ -19,12 +19,12 @@
 
 @property (nonatomic, assign) NSInteger minYear;
 @property (nonatomic, assign) NSInteger maxYear;
-@property (nonatomic, strong) NSIndexPath *todayIndexPath;
+@property (nonatomic, strong) NSIndexPath *dateIndexPath;
 
 -(void)setupMinYear:(NSInteger)minYear maxYear:(NSInteger)maxYear;
--(void)selectToday;
+-(void)selectDate;
 -(NSArray *)nameOfYears;
--(NSIndexPath *)todayPath;
+-(NSIndexPath *)pathForDate:(NSDate *) date;
 
 @end
 
@@ -36,6 +36,7 @@
 @implementation SBPickerSelector
 
 + (instancetype) picker {
+    NSLog(@"SBPickerSelector : please use the default init");
 	return [SBPickerSelector pickerWithNibName:@"SBPickerSelector"];
 }
 
@@ -44,6 +45,10 @@
 	instance.pickerData = [NSMutableArray arrayWithCapacity:0];
 	instance.numberOfComponents = 1;
 	return instance;
+}
+
+- (id) init {
+    return [SBPickerSelector pickerWithNibName:@"SBPickerSelector"];
 }
 
 - (void) showPickerOver:(UIViewController *)parent{
@@ -206,14 +211,14 @@
 	
 }
 
-- (void) showPickerIpadFromRect:(CGRect)rect inView:(UIView *)view{
+- (void) showPickerIpadFromRect:(CGRect)rect inViewController:(UIViewController *)viewController{
 	
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-		popOver_ = [[UIPopoverController alloc] initWithContentViewController:self];
-		[popOver_ setPopoverContentSize:self.view.frame.size];
-		[popOver_ presentPopoverFromRect:rect inView:view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        self.modalPresentationStyle = UIModalPresentationPopover;
+        self.popoverPresentationController.sourceRect = rect;
+        [viewController presentViewController:self animated:true completion:nil];
 	}else{
-		[self showPickerOver:(UIViewController *)[self traverseResponderChainForUIViewController:view]];
+		[self showPickerOver:viewController];
 	}
 	
 }
@@ -441,11 +446,6 @@
 
 - (void) dismissPicker{
 	
-	if (popOver_) {
-		[popOver_ dismissPopoverAnimated:YES];
-		return;
-	}
-	
 	[UIView animateWithDuration:0.3 animations:^{
 		self.background.backgroundColor = [self.background.backgroundColor colorWithAlphaComponent:0];
 		CGRect frame = self.view.frame;
@@ -622,16 +622,16 @@ const NSInteger numberOfComponents = 2;
 	}
 	
 	self.years = [self nameOfYears];
-	self.todayIndexPath = [self todayPath];
+	self.dateIndexPath = [self todayPath];
 }
 
--(void)selectToday
+-(void)selectDate
 {
-	[self selectRow: self.todayIndexPath.row
+	[self selectRow: self.dateIndexPath.row
 		inComponent: MONTH
 		   animated: NO];
 	
-	[self selectRow: self.todayIndexPath.section
+	[self selectRow: self.dateIndexPath.section
 		inComponent: YEAR
 		   animated: NO];
 }
@@ -762,52 +762,70 @@ const NSInteger numberOfComponents = 2;
 	return years;
 }
 
+
+-(NSIndexPath *)pathForDate:(NSDate *)date // row - month ; section - year
+{
+    CGFloat row = 0.f;
+    CGFloat section = 0.f;
+    
+    NSString *month = [self monthNameForDate:date];
+    NSString *year  = [self yearNameForDate:date];
+    
+    //set table on the middle
+    for(NSString *cellMonth in self.months)
+    {
+        if([cellMonth isEqualToString:month])
+        {
+            row = [self.months indexOfObject:cellMonth];
+            row = row + ([self bigRowMonthCount] / 2);
+            break;
+        }
+    }
+    
+    for(NSString *cellYear in self.years)
+    {
+        if([cellYear isEqualToString:year])
+        {
+            section = [self.years indexOfObject:cellYear];
+            section = section + ([self bigRowYearCount] / 2);
+            break;
+        }
+    }
+    
+    return [NSIndexPath indexPathForRow:row inSection:section];
+}
+
+
+
 -(NSIndexPath *)todayPath // row - month ; section - year
 {
-	CGFloat row = 0.f;
-	CGFloat section = 0.f;
-	
-	NSString *month = [self currentMonthName];
-	NSString *year  = [self currentYearName];
-	
-		//set table on the middle
-	for(NSString *cellMonth in self.months)
-	{
-		if([cellMonth isEqualToString:month])
-		{
-			row = [self.months indexOfObject:cellMonth];
-			row = row + ([self bigRowMonthCount] / 2);
-			break;
-		}
-	}
-	
-	for(NSString *cellYear in self.years)
-	{
-		if([cellYear isEqualToString:year])
-		{
-			section = [self.years indexOfObject:cellYear];
-			section = section + ([self bigRowYearCount] / 2);
-			break;
-		}
-	}
-	
-	return [NSIndexPath indexPathForRow:row inSection:section];
+    return [self pathForDate:[NSDate date]];
 }
 
 -(NSString *)currentMonthName
 {
-	NSDateFormatter *formatter = [NSDateFormatter new];
-	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-	[formatter setDateFormat:@"MMMM"];
-	return [formatter stringFromDate:[NSDate date]];
+	return [self monthNameForDate:[NSDate date]];
+}
+
+-(NSString *)monthNameForDate:(NSDate *)date
+{
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
+    [formatter setDateFormat:@"MMMM"];
+    return [formatter stringFromDate:date];
 }
 
 -(NSString *)currentYearName
 {
+    return [self yearNameForDate:[NSDate date]];
+}
+
+-(NSString *)yearNameForDate:(NSDate *)date
+{
 	NSDateFormatter *formatter = [NSDateFormatter new];
 	[formatter setDateFormat:@"yyyy"];
 	[formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"]];
-	return [formatter stringFromDate:[NSDate date]];
+	return [formatter stringFromDate:date];
 }
 
 
@@ -818,7 +836,7 @@ const NSInteger numberOfComponents = 2;
 	
 	self.months = [self nameOfMonths];
 	self.years = [self nameOfYears];
-	self.todayIndexPath = [self todayPath];
+	self.dateIndexPath = [self todayPath];
 	
 	self.delegate = self;
 	self.dataSource = self;
