@@ -336,10 +336,18 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	if (self.dateOnlyMonthYearPickerView) {
-		if (self.minYear > 0){
-			[self.dateOnlyMonthYearPickerView setupMinYear:self.minYear maxYear:self.maxYear];
-		}
-		[self.dateOnlyMonthYearPickerView selectToday];
+        
+        
+        NSInteger min = self.minYear > 0 ? self.minYear : self.dateOnlyMonthYearPickerView.minYear;
+        NSInteger max = self.maxYear > 0 ? self.maxYear : self.dateOnlyMonthYearPickerView.maxYear;
+        
+        [self.dateOnlyMonthYearPickerView setupMinYear:min maxYear:max];
+        
+        if (self.defaultDate != nil) {
+            self.dateOnlyMonthYearPickerView.dateIndexPath = [self.dateOnlyMonthYearPickerView pathForDate:self.defaultDate];
+        }
+        
+        [self.dateOnlyMonthYearPickerView selectDate];
 	}
 }
 
