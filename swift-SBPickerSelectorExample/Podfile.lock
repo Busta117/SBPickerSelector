@@ -1,0 +1,18 @@
+PODS:
+  - SBPickerSelector (1.1.2):
+    - SBPickerSelector/Core (= 1.1.2)
+  - SBPickerSelector/Core (1.1.2)
+
+DEPENDENCIES:
+  - SBPickerSelector (from `../`)
+
+EXTERNAL SOURCES:
+  SBPickerSelector:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SBPickerSelector: 236c1c9f1213bfc302527a1eb98f9cfeaf5284e4
+
+PODFILE CHECKSUM: 900b439e5db2436d43c5061bf038cbcfaa552404
+
+COCOAPODS: 1.0.1

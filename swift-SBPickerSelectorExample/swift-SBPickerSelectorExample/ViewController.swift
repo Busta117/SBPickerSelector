@@ -2,16 +2,15 @@
 //  ViewController.swift
 //  swift-SBPickerSelectorExample
 //
-//  Created by Santiago Bustamante on 10/24/14.
-//  Copyright (c) 2014 Santiago Bustamante. All rights reserved.
+//  Created by Santiago Bustamante on 10/14/16.
+//  Copyright © 2016 Santiago Bustamante. All rights reserved.
 //
 
 import UIKit
+import SBPickerSelector
 
 class ViewController: UIViewController, SBPickerSelectorDelegate {
 
-    @IBOutlet weak var resultLbl: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -22,62 +21,32 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func showPicker(sender: AnyObject) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         
-        //*********************
-        //setup here your picker
-        //*********************
-        
-        let picker: SBPickerSelector = SBPickerSelector.picker()
+    }
+    
+    @IBAction func showPickerAction(_ sender: AnyObject) {
+        let picker = SBPickerSelector()
         
         picker.pickerData = ["one","two","three","four","five","six"] //picker content
         picker.delegate = self
-        picker.pickerType = SBPickerSelectorType.Text
-        picker.doneButtonTitle = "Done"
-        picker.cancelButtonTitle = "Cancel"
-
-//		picker.pickerType = SBPickerSelectorType.Date //select date(needs implements delegate method with date)
-//        picker.datePickerType = SBPickerSelectorDateType.OnlyMonthAndYear
-//		picker.minYear = 2015
-//		picker.maxYear = 2051
-
+//        picker.pickerType = SBPickerSelectorType.text
+//        picker.doneButtonTitle = "Done"
+//        picker.cancelButtonTitle = "Cancel"
         
-//        picker.showPickerOver(self)
+        picker.pickerType = SBPickerSelectorType.date //select date(needs implements delegate method with date)
+        picker.datePickerType = SBPickerSelectorDateType.onlyMonthAndYear //type of date picker (complete, only day, only hour)
+//        picker.defaultDate = Date(timeIntervalSinceNow: (60*60*24*30*5))
         
-        let point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
-        var frame: CGRect = sender.frame
-        frame.origin = point
-        picker.showPickerIpadFromRect(frame, inView: view)
         
-
+        picker.showPickerOver(self) //classic picker display
+    }
+    
+    func pickerSelector(_ selector: SBPickerSelector, intermediatelySelectedValues values: [String], atIndexes idxs: [NSNumber]) {
+        print(values)
     }
 
-    
-    //MARK: SBPickerSelectorDelegate
-    func pickerSelector(selector: SBPickerSelector!, selectedValue value: String!, index idx: Int) {
-        resultLbl.text = value
-    }
-    
-    func pickerSelector(selector: SBPickerSelector!, dateSelected date: NSDate!) {
-    
-        let dateFormat = NSDateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        resultLbl.text = dateFormat.stringFromDate(date)
-    }
-    
-
-    func pickerSelector(selector: SBPickerSelector!, cancelPicker cancel: Bool) {
-        print("press cancel")
-    }
-    
-    func pickerSelector(selector: SBPickerSelector!, intermediatelySelectedValue value: AnyObject!, atIndex idx: Int) {
-        if value.isMemberOfClass(NSDate){
-            pickerSelector(selector, dateSelected: value as! NSDate)
-        }else{
-            pickerSelector(selector, selectedValue: value as! String, index: idx)
-        }
-    }
-    
 }
 
