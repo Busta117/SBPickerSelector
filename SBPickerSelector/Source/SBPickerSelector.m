@@ -11,6 +11,10 @@
 
 #define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
+#define DEFAULT_MAX_YEAR 2030
+#define DEFAULT_MIN_YEAR 2014
+
+
 @interface SBDatePickerViewMonthYear : UIPickerView <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong, readonly) NSDate *date;
@@ -347,12 +351,16 @@
 -(void)viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
 	if (self.dateOnlyMonthYearPickerView) {
-        
-        
+
+/*
         NSInteger min = self.minYear > 0 ? self.minYear : self.dateOnlyMonthYearPickerView.minYear;
         NSInteger max = self.maxYear > 0 ? self.maxYear : self.dateOnlyMonthYearPickerView.maxYear;
         
         [self.dateOnlyMonthYearPickerView setupMinYear:min maxYear:max];
+  */
+        if (self.minYear > 0 || self.maxYear > 0){
+            [self.dateOnlyMonthYearPickerView setupMinYear:self.minYear maxYear:self.maxYear];
+        }
         
         if (self.defaultDate != nil) {
             self.dateOnlyMonthYearPickerView.dateIndexPath = [self.dateOnlyMonthYearPickerView pathForDate:self.defaultDate];
@@ -630,6 +638,9 @@ const NSInteger numberOfComponents = 2;
 
 - (void)setupMinYear:(NSInteger)minYear maxYear:(NSInteger)maxYear
 {
+    minYear = minYear == 0 ? DEFAULT_MIN_YEAR : minYear;
+    maxYear = maxYear == 0 ? DEFAULT_MAX_YEAR : maxYear;
+    
 	self.minYear = minYear;
 	
 	if (maxYear > minYear)
@@ -851,8 +862,8 @@ const NSInteger numberOfComponents = 2;
 
 -(void)loadDefaultsParameters
 {
-	self.minYear = 2014;
-	self.maxYear = 2030;
+    self.minYear = DEFAULT_MIN_YEAR;
+    self.maxYear = DEFAULT_MAX_YEAR;
 	
 	self.months = [self nameOfMonths];
 	self.years = [self nameOfYears];
