@@ -17,7 +17,7 @@ you can see how to works in the example project the file named <b>"SBViewControl
 #### Podfile
 
 ```ruby
-platform :ios, '6.0'
+platform :ios, '8.0'
 pod 'SBPickerSelector'
 ```
 
@@ -34,7 +34,7 @@ pod 'SBPickerSelector'
 ```swift
 
 #import "SBPickerSelector.h" //in your -Bridging-Header.h file
-#//if you are using frameworks:
+#//if you are using it as a frameworks: (use_frameworks!)
 #import SBPickerSelector //in the class where you will use it
 ```
 - implement delegate in your class
@@ -56,6 +56,7 @@ class className: UIViewController, SBPickerSelectorDelegate
 //if the user cancel the picker
 -(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
 ```
+
 <b>swift:</b>
 ```swift
 //if your piker is a traditional selection
@@ -65,8 +66,10 @@ func pickerSelector(_ selector: SBPickerSelector, dateSelected date: Date)
 //when picker value is changing
 func pickerSelector(_ selector: SBPickerSelector, intermediatelySelectedValues values: [String], atIndexes idxs: [NSNumber])
 //if the user cancel the picker
-func pickerSelector(_ selector: SBPickerSelector, cancelPicker cancel: Bool)```
-- in your code add follow code when you need show the picker
+func pickerSelector(_ selector: SBPickerSelector, cancelPicker cancel: Bool)
+```
+
+- in your code add the following code when you need show the picker:
 
 ```objective-c
 SBPickerSelector *picker = [SBPickerSelector new];
