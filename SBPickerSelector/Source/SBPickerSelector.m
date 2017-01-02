@@ -401,7 +401,9 @@
             if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:dateSelected:)]) {
                 [self.delegate pickerSelector:self dateSelected:[self.dateOnlyMonthYearPickerView date]];
             }
-            [self dismissPicker];
+            if (self.autoDismiss) {
+                [self dismissPicker];
+            }
             return;
         }
         
@@ -409,7 +411,9 @@
             [self.delegate pickerSelector:self dateSelected:self.datePickerView.date];
         }
         
-        [self dismissPicker];
+        if (self.autoDismiss) {
+            [self dismissPicker];
+        }
         return;
     }
     
@@ -455,7 +459,9 @@
         
     }
     
-    [self dismissPicker];
+    if (self.autoDismiss) {
+        [self dismissPicker];
+    }
 }
 
 
@@ -464,13 +470,11 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(pickerSelector:cancelPicker:)]) {
         [self.delegate pickerSelector:self cancelPicker:YES];
     }
-    [self dismissPicker];
+    
 }
 
 - (void) dismissPicker{
-    if (!self.autoDismiss) {
-        return;
-    }
+    
     if (self.isPopOver){
         [self dismissViewControllerAnimated:YES completion:nil];
         return;
