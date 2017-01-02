@@ -63,6 +63,7 @@ typedef NS_ENUM(NSInteger, SBPickerSelectorDateType) {
 @property (nonatomic, strong) NSString * _Nullable pickerId;
 @property (nonatomic, assign) int tag;
 @property (nonatomic, assign) BOOL onlyDayPicker;
+@property (nonatomic, assign) BOOL autoDismiss;
 @property (nonatomic, assign) SBPickerSelectorDateType datePickerType;
 @property (nonatomic, strong) NSDate * _Nullable defaultDate;
 @property (nonatomic, strong) NSString * _Nullable doneButtonTitle;

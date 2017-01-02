@@ -37,10 +37,10 @@ class ViewController: UIViewController, SBPickerSelectorDelegate {
 //        picker.cancelButtonTitle = "Cancel"
         
         picker.pickerType = SBPickerSelectorType.date //select date(needs implements delegate method with date)
-        picker.datePickerType = SBPickerSelectorDateType.onlyMonthAndYear //type of date picker (complete, only day, only hour)
-        picker.defaultDate = Date(timeIntervalSinceNow: (60*60*24*30*5))
-        picker.minYear = 2015
-        picker.maxYear = 2020
+        picker.datePickerType = SBPickerSelectorDateType.onlyHour //type of date picker (complete, only day, only hour)
+//        picker.defaultDate = Date(timeIntervalSinceNow: (60*60*24*30*5))
+//        picker.minYear = 2015
+//        picker.maxYear = 2020
         
         picker.showPickerOver(self) //classic picker display
 //        picker.showPicker(from: sender, in: self)

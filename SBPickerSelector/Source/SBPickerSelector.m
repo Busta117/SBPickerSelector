@@ -49,6 +49,7 @@
 	SBPickerSelector *instance = [[self alloc] initWithNibName:nibName bundle:[NSBundle bundleForClass:[SBPickerSelector class]]];
 	instance.pickerData = [NSMutableArray arrayWithCapacity:0];
 	instance.numberOfComponents = 1;
+    instance.autoDismiss = YES;
 	return instance;
 }
 
@@ -467,7 +468,9 @@
 }
 
 - (void) dismissPicker{
-	
+    if (!self.autoDismiss) {
+        return;
+    }
     if (self.isPopOver){
         [self dismissViewControllerAnimated:YES completion:nil];
         return;
