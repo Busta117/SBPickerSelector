@@ -24,7 +24,7 @@ pod 'SBPickerSelector'
 ### Installation without CocoaPods
 - import in your project the folder "SBPickerSelector"
 
-###How to use
+### How to use
 
 - in your code import SBPickerSelector.h
 ```objective-c
@@ -111,7 +111,7 @@ var frame: CGRect = sender.frame
 frame.origin = point
 picker.showPickerIpadFromRect(frame, inView: view) //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
 ```
-####feedback?
+#### feedback?
 
 * twitter: [@busta117](http://www.twitter.com/busta117)
 * mail: <busta117@gmail.com>
