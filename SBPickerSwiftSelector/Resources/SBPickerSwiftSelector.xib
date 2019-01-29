@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SBPickerSwiftSelector" customModule="SBPickerSwiftSelectorExample" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="UYc-rG-hYr" id="Uva-de-5PF"/>
+                <outlet property="datePickerView" destination="Bal-Z8-2NG" id="7rN-UK-zuf"/>
+                <outlet property="doneButton" destination="drE-bY-oPE" id="rzL-vs-I46"/>
+                <outlet property="pickerView" destination="v3P-DK-gsX" id="9fK-T3-Lpb"/>
+                <outlet property="stackView" destination="DMb-Sk-uNa" id="APg-9P-gg5"/>
+                <outlet property="toolBar" destination="mTy-ON-reF" id="4Oj-MU-Ygd"/>
+                <outlet property="view" destination="vNL-JJ-2eo" id="bUf-HH-n81"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="vNL-JJ-2eo">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DMb-Sk-uNa">
+                    <rect key="frame" x="0.0" y="191" width="375" height="476"/>
+                    <subviews>
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTy-ON-reF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <items>
+                                <barButtonItem title="Cancel" id="UYc-rG-hYr">
+                                    <connections>
+                                        <action selector="cancelAction:" destination="-1" id="NOc-g9-3FK"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="kyE-fe-35Y"/>
+                                <barButtonItem title="Set" id="drE-bY-oPE">
+                                    <connections>
+                                        <action selector="doneAction:" destination="-1" id="Zpq-HB-jwc"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Z8-2NG">
+                            <rect key="frame" x="0.0" y="44" width="375" height="216"/>
+                            <date key="date" timeIntervalSinceReferenceDate="570135179.70725906">
+                                <!--2019-01-25 18:52:59 +0000-->
+                            </date>
+                        </datePicker>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v3P-DK-gsX">
+                            <rect key="frame" x="0.0" y="260" width="375" height="216"/>
+                        </pickerView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="DMb-Sk-uNa" firstAttribute="trailing" secondItem="34P-ho-cM6" secondAttribute="trailing" id="3cD-sM-Fnf"/>
+                <constraint firstAttribute="bottom" secondItem="DMb-Sk-uNa" secondAttribute="bottom" id="BzI-IT-dSe"/>
+                <constraint firstItem="DMb-Sk-uNa" firstAttribute="leading" secondItem="34P-ho-cM6" secondAttribute="leading" id="nao-3K-sjy"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="34P-ho-cM6"/>
+        </view>
+    </objects>
+</document>

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SBPickerSelector"
-  s.version = "1.2.1"
+  s.version = "2.0.0"
   s.summary = "Easy framework to setup pickers in your iOS project, easy picker manager."
   s.homepage = "https://github.com/Busta117/SBPickerSelector"
   s.license = { :type => 'MIT', :file => 'LICENSE'}
@@ -10,9 +10,9 @@ Pod::Spec.new do |s|
       :tag => s.version.to_s
     }
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.requires_arc = true
-  s.source_files = 'SBPickerSelector/Source/*'
-  s.resources = 'SBPickerSelector/Resources/*'
+  s.source_files = 'SBPickerSwiftSelector/Source/*'
+  s.resources = 'SBPickerSwiftSelector/Resources/*'
 
 end
