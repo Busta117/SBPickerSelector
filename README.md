@@ -3,7 +3,7 @@ SBPickerSelector
 
 easy framework to setup pickers in your iOS project, easy picker manager, now with swift compatibility
 
-you can see how to works in the example project the file named <b>"SBViewController"</b> in the method <b>showPicker:</b>
+you can see how to works in the example project the file named **"ViewController.swift"** in the method **showPickerAction**
 
 
 ![alt tag](https://raw.githubusercontent.com/Busta117/SBPickerSelector/master/preview.png)
@@ -12,12 +12,12 @@ you can see how to works in the example project the file named <b>"SBViewControl
 
 ### Installation with CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SBPickerSelector in your projects.
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C and Swift, which automates and simplifies the process of using 3rd-party libraries like SBPickerSelector in your projects.
 
 #### Podfile
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 pod 'SBPickerSelector'
 ```
 
@@ -26,90 +26,43 @@ pod 'SBPickerSelector'
 
 ###How to use
 
-- in your code import SBPickerSelector.h
-```objective-c
-#import "SBPickerSelector.h"
-```
-<b>swift:</b>
+in the header of your file...
 ```swift
+import SBPickerSwiftSelector
+```
 
-#import "SBPickerSelector.h" //in your -Bridging-Header.h file
-#//if you are using it as a frameworks: (use_frameworks!)
-#import SBPickerSelector //in the class where you will use it
-```
-- implement delegate in your class
-```objective-c
-@interface className : UIViewController <SBPickerSelectorDelegate>
-```
-<b>swift:</b>
+and just create an object **SBPickerSwiftSelector** with the params that you want.
+
+- picker modes:
+  - text: just a list to select
+  - dateDefault: date selection with full data(year, month, day, hour, minutes)
+  - dateHour: just an option to select hour and minutes
+  - dateDayMonthYear: option to select day, month and year
+  - dateMonthYear: option to select just month and year
+
+- params:
+  - mode: mode of the picker
+  - data: an array of the datasource, can be [String] or [[String]], single string array will be display a list of 1 section with the list, array of array will display each array in a separate sections (just mandatory in mode *.text*)
+  - startDate: min date for the date selection (ignored in mode: *.text*, default *nil* - year 1920)
+  - endDate: max date for the date selection (ignored in mode: *.text*, default *nil* - year 2050)
+  - defaultDate: default text displayed in the picker(ignored in mode: *.text*, default *nil*)
+
+if you want to implement a cancel action just append the **cancel** method of the picker, and if you want to implement a set action just append the **set** method, this set method will return [Any] where will be [String] or [[String]] if it in *.text* mode and will be [Date] with only 1 date for the any of the date selection.
+
 ```swift
-class className: UIViewController, SBPickerSelectorDelegate
-```
-- add delegate methods depends of your necesities
-```objective-c
-//if your piker is a traditional selection
--(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValues:(NSArray<NSString *> *)values;
-//if your picker is a date selection
--(void) pickerSelector:(SBPickerSelector *)selector dateSelected:(NSDate *)date;
-//when picker value is changing
--(void) pickerSelector:(SBPickerSelector *)selector intermediatelySelectedValues:(NSArray<NSString *> *)values atIndexes:(NSArray<NSNumber *> *)idxs;
-//if the user cancel the picker
--(void) pickerSelector:(SBPickerSelector *)selector cancelPicker:(BOOL)cancel;
-```
+SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.dateHour, data: ["hi","there"], defaultDate: Date()).cancel {
+            print("cancel, will be autodismissed")
+            }.set { values in
+                if let values = values as? [String] {
+                    sender.setTitle(values[0], for: UIControl.State.normal)
+                } else if let values = values as? [Date] {
 
-<b>swift:</b>
-```swift
-//if your piker is a traditional selection
-func pickerSelector(_ selector: SBPickerSelector, selectedValues values: [String], atIndexes idxs: [NSNumber])
-//if your picker is a date selection
-func pickerSelector(_ selector: SBPickerSelector, dateSelected date: Date)
-//when picker value is changing
-func pickerSelector(_ selector: SBPickerSelector, intermediatelySelectedValues values: [String], atIndexes idxs: [NSNumber])
-//if the user cancel the picker
-func pickerSelector(_ selector: SBPickerSelector, cancelPicker cancel: Bool)
-```
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "YYYY-MM"
+                    print(dateFormatter.string(from: values[0]))
+                }
 
-- in your code add the following code when you need show the picker:
-
-```objective-c
-SBPickerSelector *picker = [SBPickerSelector new];
-
-picker.pickerData = [@[@"one",@"two",@"three",@"four",@"five",@"six"] mutableCopy]; //picker content
-picker.pickerType = SBPickerSelectorTypeText;
-
-picker.pickerType = SBPickerSelectorTypeDate; //select date(needs implements delegate methid with date)
-picker.onlyDayPicker = YES;  //if i want select only year, month and day, without hour (default NO)
-picker.datePickerType = SBPickerSelectorDateTypeOnlyHour; //type of date picker (complete, only day, only hour)
-
-picker.delegate = self;
-
-picker.doneButtonTitle = @"Done";
-picker.cancelButtonTitle = @"Cancel";
-
-
-[picker showPickerOver:self]; //classic picker display
-
-[picker showPickerIpadFromRect:CGRectZero inView:self.view]; //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
-```
-
-<b>swift:</b>
-```swift
-var picker: SBPickerSelector = SBPickerSelector()        
-picker.pickerData = ["one","two","three","four","five","six"] //picker content
-picker.delegate = self
-picker.pickerType = SBPickerSelectorType.Text
-picker.doneButtonTitle = "Done"
-picker.cancelButtonTitle = "Cancel"
-
-picker.pickerType = SBPickerSelectorType.Date //select date(needs implements delegate method with date)
-picker.datePickerType = SBPickerSelectorDateType.OnlyHour //type of date picker (complete, only day, only hour)
-
-picker.showPickerOver(self) //classic picker display
-
-var point: CGPoint = view.convertPoint(sender.frame.origin, fromView: sender.superview)
-var frame: CGRect = sender.frame
-frame.origin = point
-picker.showPickerIpadFromRect(frame, inView: view) //if you whant a popover picker in ipad, set the view an point target(if you set this and opens in iphone, picker shows normally)
+        }.present(into: self)
 ```
 ####feedback?
 
