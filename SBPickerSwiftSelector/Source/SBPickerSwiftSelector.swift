@@ -135,7 +135,7 @@ public class SBPickerSwiftSelector: UIViewController {
         case .text:
             var values = [String]()
             if numberOfComponents > 1 {
-                for index in 0 ... numberOfComponents {
+                for index in 0 ..< numberOfComponents {
                     let row = pickerView.selectedRow(inComponent: index)
                     let arrayComp = data[index] as! [String]
                     values.append(arrayComp[row])
