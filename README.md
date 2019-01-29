@@ -24,7 +24,7 @@ pod 'SBPickerSelector'
 ### Installation without CocoaPods
 - import in your project the folder "SBPickerSelector"
 
-###How to use
+### How to use
 
 in the header of your file...
 ```swift
@@ -64,7 +64,7 @@ SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.dateHour, data: ["hi","th
 
         }.present(into: self)
 ```
-####feedback?
+#### feedback?
 
 * twitter: [@busta117](http://www.twitter.com/busta117)
 * mail: <busta117@gmail.com>
