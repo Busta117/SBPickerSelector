@@ -260,6 +260,20 @@ extension SBPickerSwiftSelector {
         viewController.present(self, animated: true, completion: nil)
     }
     
+    public func present(intoRootViewControllerFrom viewController: UIViewController) {
+        self.transitioningDelegate = self
+        parentVC(viewController).present(self, animated: true, completion: nil)
+    }
+    
+    // get the most parent view controller to prenset the picker
+    private func parentVC(_ viewController: UIViewController) -> UIViewController {
+        if let parent = viewController.parent {
+            return parentVC(parent)
+        } else {
+            return viewController
+        }
+    }
+    
 }
 
 
