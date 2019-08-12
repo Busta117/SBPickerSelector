@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2718DA4B230165EF005DC710 /* JLPickerSwiftSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 2718DA49230165EF005DC710 /* JLPickerSwiftSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2718DA4E230165EF005DC710 /* JLPickerSwiftSelector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718DA47230165EF005DC710 /* JLPickerSwiftSelector.framework */; };
 		2718DA4F230165EF005DC710 /* JLPickerSwiftSelector.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2718DA47230165EF005DC710 /* JLPickerSwiftSelector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2718DA5423016638005DC710 /* SBPickerSwiftSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F4BD19821FB922F008BBBA6 /* SBPickerSwiftSelector.swift */; };
@@ -153,7 +152,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2718DA4B230165EF005DC710 /* JLPickerSwiftSelector.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +317,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JLPickerSwiftSelector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,7 +346,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = JLPickerSwiftSelector/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
