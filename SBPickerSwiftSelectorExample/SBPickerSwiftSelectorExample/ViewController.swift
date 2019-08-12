@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         let date = dateFormatter.date(from: "1989-10")!
         
         
-        SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.text, data: [["hi","there"],["1","2","3"], ["a", "b"]], defaultDate: date).cancel {
+        SBPickerSwiftSelector(mode: SBPickerSwiftSelector.Mode.text, data: ["hi","there", "G", "B"], defaultDate: date).cancel {
             print("cancel")
             }.set { values in
                 if let values = values as? [String] {
