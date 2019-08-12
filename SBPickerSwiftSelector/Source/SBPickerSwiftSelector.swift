@@ -167,6 +167,7 @@ public class SBPickerSwiftSelector: UIViewController {
     }
     
     @IBAction fileprivate func cancelAction(_ sender: Any) {
+        cancelAction?()
         dismiss(animated: true, completion: nil)
     }
     
