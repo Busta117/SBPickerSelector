@@ -61,12 +61,21 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="DMb-Sk-uNa" firstAttribute="trailing" secondItem="34P-ho-cM6" secondAttribute="trailing" id="3cD-sM-Fnf"/>
                 <constraint firstAttribute="bottom" secondItem="DMb-Sk-uNa" secondAttribute="bottom" id="BzI-IT-dSe"/>
                 <constraint firstItem="DMb-Sk-uNa" firstAttribute="leading" secondItem="34P-ho-cM6" secondAttribute="leading" id="nao-3K-sjy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="34P-ho-cM6"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="m6i-qI-EpO" appends="YES" id="3Lv-gu-Pot"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="m6i-qI-EpO">
+            <connections>
+                <action selector="backgroundTapped:" destination="-1" id="3Mv-pN-g57"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

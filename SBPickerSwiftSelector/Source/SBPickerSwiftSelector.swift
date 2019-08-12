@@ -130,6 +130,11 @@ public class SBPickerSwiftSelector: UIViewController {
         
     }
     
+    
+    @IBAction func backgroundTapped(_ sender: Any) {
+        cancelAction(sender)
+    }
+    
     @IBAction fileprivate func doneAction(_ sender: Any) {
         switch pickerMode {
         case .text:
