@@ -78,6 +78,9 @@ public class SBPickerSwiftSelector: UIViewController {
         pickerView.backgroundColor = UIColor.white
         datePickerView.backgroundColor = UIColor.white
         setupPicker()
+        
+        cancelButton.title = NSLocalizedString("Cancel", comment: "")
+        doneButton.title = NSLocalizedString("Set", comment: "")
     }
     
     func setupPicker() {
