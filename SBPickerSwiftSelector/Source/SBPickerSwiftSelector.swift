@@ -104,8 +104,8 @@ public class SBPickerSwiftSelector: UIViewController {
             numberOfComponents = 2
             setDefaultDateToMonthAndYearPicker()
         }
-        if let rowForComponents = self.componentForSelectedRows {
-            rowForComponents.forEach { (component, selectedRow) in
+        if let componentForRows = self.componentForSelectedRows {
+            componentForRows.forEach { (component, selectedRow) in
                 pickerView.selectRow(selectedRow, inComponent: component, animated: false)
             }
         }
