@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2718DA46230165EF005DC710"
-               BuildableName = "JLPickerSwiftSelector.framework"
-               BlueprintName = "JLPickerSwiftSelector"
+               BuildableName = "SBPickerSelector.framework"
+               BlueprintName = "SBPickerSelector"
                ReferencedContainer = "container:SBPickerSwiftSelectorExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2718DA46230165EF005DC710"
-            BuildableName = "JLPickerSwiftSelector.framework"
-            BlueprintName = "JLPickerSwiftSelector"
+            BuildableName = "SBPickerSelector.framework"
+            BlueprintName = "SBPickerSelector"
             ReferencedContainer = "container:SBPickerSwiftSelectorExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2718DA46230165EF005DC710"
-            BuildableName = "JLPickerSwiftSelector.framework"
-            BlueprintName = "JLPickerSwiftSelector"
+            BuildableName = "SBPickerSelector.framework"
+            BlueprintName = "SBPickerSelector"
             ReferencedContainer = "container:SBPickerSwiftSelectorExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

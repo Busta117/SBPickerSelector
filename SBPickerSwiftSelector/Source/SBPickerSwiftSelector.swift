@@ -34,7 +34,7 @@ public class SBPickerSwiftSelector: UIViewController {
     fileprivate var startDate: Date?
     fileprivate var endDate: Date?
     fileprivate var defaultDate: Date?
-    fileprivate var selectedRow: Int?
+    fileprivate var componentForSelectedRows: [Int:Int]?
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -104,8 +104,10 @@ public class SBPickerSwiftSelector: UIViewController {
             numberOfComponents = 2
             setDefaultDateToMonthAndYearPicker()
         }
-        if let row = self.selectedRow {
-            pickerView.selectRow(row, inComponent: 0, animated: false)
+        if let rowForComponents = self.componentForSelectedRows {
+            rowForComponents.forEach { (component, selectedRow) in
+                pickerView.selectRow(selectedRow, inComponent: component, animated: false)
+            }
         }
     }
     
@@ -244,7 +246,7 @@ extension SBPickerSwiftSelector: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension SBPickerSwiftSelector {
     
-    public convenience init(mode: Mode, data: [Any]? = nil, startDate: Date? = nil, endDate: Date? = nil, defaultDate: Date? = nil, selectedRow: Int? = nil) {
+    public convenience init(mode: Mode, data: [Any]? = nil, startDate: Date? = nil, endDate: Date? = nil, defaultDate: Date? = nil, componentForSelectedRows: [Int: Int]? = nil) {
         self.init(nibName: "SBPickerSwiftSelector", bundle: Bundle(for: SBPickerSwiftSelector.self))
         
         self.modalPresentationStyle = .overCurrentContext
@@ -262,7 +264,7 @@ extension SBPickerSwiftSelector {
         self.startDate = startDate
         self.endDate = endDate
         self.defaultDate = defaultDate
-        self.selectedRow = selectedRow
+        self.componentForSelectedRows = componentForSelectedRows
     }
     
     public func present(into viewController: UIViewController) {
