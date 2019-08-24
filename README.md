@@ -25,7 +25,7 @@ pod 'SBPickerSelector'
 
 ```ruby
 platform :ios, '9.0'
-github "Busta117/SBPickerSelector" "master"
+github "janlionly/SBPickerSelector" "master"
 ```
 
 ### Installation without CocoaPods
