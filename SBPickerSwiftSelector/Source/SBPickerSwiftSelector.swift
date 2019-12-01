@@ -17,8 +17,8 @@ public class SBPickerSwiftSelector: UIViewController {
 
     @IBOutlet fileprivate weak var stackView: UIStackView!
     @IBOutlet fileprivate weak var toolBar: UIToolbar!
-    @IBOutlet var datePickerView: UIDatePicker!
-    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet public var datePickerView: UIDatePicker!
+    @IBOutlet public var pickerView: UIPickerView!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
