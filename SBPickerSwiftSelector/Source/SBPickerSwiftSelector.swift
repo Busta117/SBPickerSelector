@@ -64,6 +64,10 @@ public class SBPickerSwiftSelector: UIViewController {
             datePickerView.setDate(defaultDate, animated: false)
         }
         
+        if #available(iOS 13.4, *) {
+            datePickerView.preferredDatePickerStyle = UIDatePickerStyle.wheels
+        }
+        
         let yearArr = Array(minYear ... maxYear).map({"\($0)"})
         yearList.append(contentsOf: yearArr)
         yearList.append(contentsOf: yearArr)
