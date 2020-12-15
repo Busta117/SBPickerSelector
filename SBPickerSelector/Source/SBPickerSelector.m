@@ -263,6 +263,11 @@
         frame.origin.y = CGRectGetMaxY(self.optionsToolBar.frame);
         self.datePickerView.frame = frame;
         
+        if (@available(iOS 13.4, *)) {
+            [self.datePickerView setPreferredDatePickerStyle: UIDatePickerStyleWheels];
+        }
+        
+        
     }else{
         [self.datePickerView removeFromSuperview];
         [self.view addSubview:self.pickerView];
