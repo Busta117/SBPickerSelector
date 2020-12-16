@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,6 +31,7 @@
                     <subviews>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTy-ON-reF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <color key="backgroundColor" white="0.87689810739999996" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <items>
                                 <barButtonItem title="Cancel" id="UYc-rG-hYr">
                                     <connections>
@@ -44,6 +45,7 @@
                                     </connections>
                                 </barButtonItem>
                             </items>
+                            <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </toolbar>
                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bal-Z8-2NG">
                             <rect key="frame" x="0.0" y="44" width="375" height="216"/>
@@ -59,12 +61,21 @@
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="DMb-Sk-uNa" firstAttribute="trailing" secondItem="34P-ho-cM6" secondAttribute="trailing" id="3cD-sM-Fnf"/>
                 <constraint firstAttribute="bottom" secondItem="DMb-Sk-uNa" secondAttribute="bottom" id="BzI-IT-dSe"/>
                 <constraint firstItem="DMb-Sk-uNa" firstAttribute="leading" secondItem="34P-ho-cM6" secondAttribute="leading" id="nao-3K-sjy"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="34P-ho-cM6"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="m6i-qI-EpO" appends="YES" id="3Lv-gu-Pot"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="m6i-qI-EpO">
+            <connections>
+                <action selector="backgroundTapped:" destination="-1" id="3Mv-pN-g57"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

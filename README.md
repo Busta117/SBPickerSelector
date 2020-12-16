@@ -21,6 +21,13 @@ platform :ios, '9.0'
 pod 'SBPickerSelector'
 ```
 
+#### Carthage
+
+```ruby
+platform :ios, '9.0'
+github "janlionly/SBPickerSelector" "master"
+```
+
 ### Installation without CocoaPods
 - import in your project the folder "SBPickerSelector"
 
