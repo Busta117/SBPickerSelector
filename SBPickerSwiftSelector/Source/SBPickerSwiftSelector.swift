@@ -34,6 +34,7 @@ public class SBPickerSwiftSelector: UIViewController {
     fileprivate var startDate: Date?
     fileprivate var endDate: Date?
     fileprivate var defaultDate: Date?
+    fileprivate var componentForSelectedRows: [Int:Int]?
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +111,11 @@ public class SBPickerSwiftSelector: UIViewController {
             numberOfComponents = 2
             setDefaultDateToMonthAndYearPicker()
         }
-        
+        if let componentForRows = self.componentForSelectedRows {
+            componentForRows.forEach { (component, selectedRow) in
+                pickerView.selectRow(selectedRow, inComponent: component, animated: false)
+            }
+        }
     }
     
     func setDefaultDateToMonthAndYearPicker() {
@@ -135,6 +140,11 @@ public class SBPickerSwiftSelector: UIViewController {
             pickerView.selectRow(yearIndex, inComponent: 1, animated: false)
         }
         
+    }
+    
+    
+    @IBAction func backgroundTapped(_ sender: Any) {
+        cancelAction(sender)
     }
     
     @IBAction fileprivate func doneAction(_ sender: Any) {
@@ -174,6 +184,7 @@ public class SBPickerSwiftSelector: UIViewController {
     }
     
     @IBAction fileprivate func cancelAction(_ sender: Any) {
+        cancelAction?()
         dismiss(animated: true, completion: nil)
     }
     
@@ -242,7 +253,7 @@ extension SBPickerSwiftSelector: UIPickerViewDataSource, UIPickerViewDelegate {
 
 extension SBPickerSwiftSelector {
     
-    public convenience init(mode: Mode, data: [Any]? = nil, startDate: Date? = nil, endDate: Date? = nil, defaultDate: Date? = nil) {
+    public convenience init(mode: Mode, data: [Any]? = nil, startDate: Date? = nil, endDate: Date? = nil, defaultDate: Date? = nil, componentForSelectedRows: [Int: Int]? = nil) {
         self.init(nibName: "SBPickerSwiftSelector", bundle: Bundle(for: SBPickerSwiftSelector.self))
         
         self.modalPresentationStyle = .overCurrentContext
@@ -260,6 +271,7 @@ extension SBPickerSwiftSelector {
         self.startDate = startDate
         self.endDate = endDate
         self.defaultDate = defaultDate
+        self.componentForSelectedRows = componentForSelectedRows
     }
     
     public func present(into viewController: UIViewController) {
